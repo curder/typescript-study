@@ -1,6 +1,5 @@
 "use strict";
-exports.__esModule = true;
-exports.Class1 = exports.func1 = exports.prop1 = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
 var prop2;
 var func2 = function () {
 };
