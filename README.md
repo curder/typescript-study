@@ -21,6 +21,7 @@
 
 - [学习乐园 · TypeScript——JavaScript的超集](https://www.tslang.cn/play/index.html)
 
+- [Babel 是一个 JavaScript 编译器](https://www.babeljs.cn/repl)
 
 ## 本地运行 TypeScript 代码
 
