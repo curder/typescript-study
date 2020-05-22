@@ -17,7 +17,7 @@ console.log(`hello ${getString()}`)
 
 
 // 自动拆分字符串
-function test(template, name: string, age: Number|Function) {
+function test(template, name: string, age: number|Function) {
     console.log(template)
     console.log(name)
     console.log(age)
