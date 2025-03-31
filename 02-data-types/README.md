@@ -82,3 +82,52 @@ const info: {
   age: 30,
 };
 ```
+
+## symbol 类型
+
+`symbol` 类型表示唯一值，在 `TypeScript` 中使用 `symbol` 表示：
+
+```typescript
+const s1 = Symbol();
+const s2 = Symbol();
+
+const person = {
+  [s1]: "John",
+  [s2]: "Jane",
+};
+console.log(person[s1]); // John
+console.log(person[s2]); // Jane
+```
+
+## `null` 和 `undefined`
+
+`null` 和 `undefined` 是 `TypeScript` 中的两个基本类型，`null` 表示空值，`undefined` 表示未定义。
+
+```typescript
+let n: null = null;
+let u: undefined = undefined;
+```
+
+## 函数的参数类型
+
+函数是 `JavaScript` 非常重要的组成部分，在 `TypeScript` 中允许指定函数的参数类型。
+
+```typescript
+function add(x: number, y: number) {
+  return x + y;
+}
+```
+
+声明函数时，可以在每个参数后添加类型注解，以声明函数接受的参数类型。
+
+## 函数的返回值类型
+
+函数的返回类型也可以使用类型注解来指定。
+
+```typescript
+function add(x: number, y: number): number {
+  return x + y;
+}
+```
+
+和变量的类型注解一样，通常情况下不需要返回类型注解，因为 `TypeScript` 会根据 `return` 返回值推断函数的返回类型。
