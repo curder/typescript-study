@@ -151,3 +151,37 @@ names.forEach((name) => {
 并没有指定 `name` 的类型，但是 `name` 是一个 `string` 类型，这是因为 `TypeScript` 会根据 `forEach` 函数的类型以及数组的类型推断出 `name` 的类型。
 
 这个过程称之为上下文类型（`contextual typing`），因为函数执行的上下文可以帮助确定参数和返回值的类型。
+
+## 对象类型
+
+使用对象类型来限定函数接受的参数是一个对象。
+
+```typescript
+// 对象类型和函数类型结合使用
+function printCoordinate(pt: { x: number; y: number }) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+printCoordinate({ x: 3, y: 7 });
+```
+
+> [!tip] 请注意
+>
+> 1. 属性之间可以使用 `,` 或者 `;` 来分割，最后一个分隔符是可选的；
+> 2. 每个属性的类型部分也是可选的，如果不指定，那么就是 `any` 类型；
+
+## 可选类型
+
+对象类型也可以指定哪些属性是可选的，可以在属性的后面添加一个 **`?`** 来表示可选属性。
+
+```typescript
+function printCoordinate(pt: { x: number; y: number; z?: number }) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+  console.log("The coordinate's z value is " + pt.z); // z 是可选属性，可能为 nul
+}
+
+printCoordinate({ x: 3, y: 7 });
+printCoordinate({ x: 3, y: 7, z: 10 });
+```
