@@ -1,0 +1,18 @@
+{
+  "name": "typescript-study",
+  "version": "1.0.0",
+  "description": "Typescript study",
+  "repository": "git@github.com:curder/typescript-study.git",
+  "author": "curder <q.curder@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "fix": "npx markdownlint-cli2 --config .markdownlint-cli2.yaml --fix"
+  },
+  "engines": {
+    "node": ">= 22.0"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.17.2"
+  }
+}
