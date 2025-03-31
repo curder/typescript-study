@@ -41,8 +41,10 @@ function printCoord(pt: pointType) {
 > [!NOTE]
 >
 > **请注意**
-> 如果非对象类型的定义，使用 `type` 更合适；
-> 如果对象类型的定义，使用 `interface` 更合适。
+>
+> 1. 如果非对象类型的定义，使用 `type` 更合适；
+>
+> 2. 如果对象类型的定义，使用 `interface` 更合适。
 
 - `type` 可以定义基本类型、对象类型、函数类型等，而 `interface` 只能定义对象类型。
 
