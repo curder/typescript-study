@@ -131,3 +131,23 @@ function add(x: number, y: number): number {
 ```
 
 和变量的类型注解一样，通常情况下不需要返回类型注解，因为 `TypeScript` 会根据 `return` 返回值推断函数的返回类型。
+
+## 匿名函数的参数类型
+
+匿名函数与函数声明会有一些不同：
+
+- 当一个函数出现在 `TypeScript` 可以确定该函数会被如何调用的地方时
+- 该函数的参数会自动指定类型
+
+```typescript
+const names = ["Alice", "Bob", "Eve"];
+
+// 大多数匿名函数最好不要添加类型注解，因为 TS 可以自动推断出类型
+names.forEach((name) => {
+  console.log(name.toUpperCase());
+});
+```
+
+并没有指定 `name` 的类型，但是 `name` 是一个 `string` 类型，这是因为 `TypeScript` 会根据 `forEach` 函数的类型以及数组的类型推断出 `name` 的类型。
+
+这个过程称之为上下文类型（`contextual typing`），因为函数执行的上下文可以帮助确定参数和返回值的类型。
