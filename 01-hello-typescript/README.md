@@ -71,3 +71,5 @@ node 03.hello-typescript.js
 ```txt
 var/let/const 标识符: 数据类型 = 值;
 ```
+
+> 在 TypeScript 定义变量（标识符）和 ES6 之后一致，可以使用 `var`、`let`和`const`来定义。
