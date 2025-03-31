@@ -272,3 +272,20 @@ function infiniteLoop(): never {
   while (true) {}
 }
 ```
+
+## tuple 类型
+
+`tuple` 类型表示一个已知元素数量和类型的数组，各元素的类型不必相同。
+
+元组和数组的区别：
+
+- 数组中通常建议存放相同类型的元素，不同类型的元素是不推荐放在数组中。（可以放在对象或者元组中）
+
+- 元组中每个元素都有自己特性的类型，根据索引值获取到的值可以确定对应的类型；
+
+```typescript
+const info = ["jack", 18]; // 数组
+const info2 = { name: "jack", age: 18 }; // 对象
+
+const info3: [string, number] = ["jack", 18]; // 元组
+```
