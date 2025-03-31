@@ -73,3 +73,15 @@ var/let/const 标识符: 数据类型 = 值;
 ```
 
 > 在 TypeScript 定义变量（标识符）和 ES6 之后一致，可以使用 `var`、`let`和`const`来定义。
+
+## 变量的类型推导
+
+在开发中，有时候为了方便起见并不会在声明每一个变量时都写上对应的数据类型，更希望可以通过 `TypeScript` 本身的
+特性帮助推断出对应的变量类型：
+
+```typescript
+let message = "Hello TypeScript"; // let message: string
+const height = 1.88; // const height: 1.88
+```
+
+`message` 变量就是因为后面赋值的是一个 `string` 类型，所以 `message` 虽然没有明确的说明，但是依然是一个 `string` 类型的变量。
