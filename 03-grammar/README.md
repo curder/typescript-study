@@ -40,8 +40,6 @@ function printCoord(pt: pointType) {
 
 > [!NOTE]
 >
-> **请注意**
->
 > 1. 如果非对象类型的定义，使用 `type` 更合适；
 >
 > 2. 如果对象类型的定义，使用 `interface` 更合适。
