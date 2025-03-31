@@ -226,7 +226,7 @@ if (typeof unknownValue === "string") {
 }
 ```
 
-> [!WARNING] 注意
+> [!WARNING]
 > 和 `any` 类型有点类似，但是 `unknown` 类型的值上做任何事情都是不合法的；
 
 ## void 类型
