@@ -166,7 +166,7 @@ function printCoordinate(pt: { x: number; y: number }) {
 printCoordinate({ x: 3, y: 7 });
 ```
 
-> [!TIP] 请注意
+> [!TIP]
 >
 > 1. 属性之间可以使用 `,` 或者 `;` 来分割，最后一个分隔符是可选的；
 > 2. 每个属性的类型部分也是可选的，如果不指定，那么就是 `any` 类型；
@@ -228,3 +228,21 @@ if (typeof unknownValue === "string") {
 
 > [!WARNING] 注意
 > 和 `any` 类型有点类似，但是 `unknown` 类型的值上做任何事情都是不合法的；
+
+## void 类型
+
+`void` 类型表示没有任何类型，通常用于函数的返回值，表示函数没有返回值。
+
+```typescript
+function sum(nums: number[]) {
+  let res = 0;
+  for (let i = 0; i < nums.length; i++) {
+    res += nums[i];
+  }
+  console.log(res);
+}
+
+sum([1, 2, 3]);
+```
+
+`sum` 函数没有写任何类型，那么它默认返回值的类型就是 `void` 的，也可以显示的来指定返回值是 `void`。
