@@ -251,3 +251,24 @@ sum([1, 2, 3]);
 > 当基于上下文的类型推导（`Contextual Typing`）推导出返回类型为 `void` 的时候，并不会强制函数一定不能返回内容。
 
 ## never 类型
+
+`never` 表示永远不会发生值的类型。
+
+`never` 类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是 `never` 的子类型或可以赋值给 `never` 类型（除了 `never` 本身之外）。
+
+```typescript
+// 返回 never 的函数必须存在无法达到的终点
+function error(message: string): never {
+  throw new Error(message);
+}
+
+// 推断的返回值类型为 never
+function fail() {
+  return error("Something failed");
+}
+
+// 返回 never 的函数必须存在无法达到的终点
+function infiniteLoop(): never {
+  while (true) {}
+}
+```
