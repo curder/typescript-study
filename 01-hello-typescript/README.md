@@ -44,3 +44,30 @@ yarn global add typescript
 # 查看版本
 tsc -v
 ```
+
+## `Typescirpt` 运行环境
+
+使用命令 `tsc` 可以将 `TypeScript` 编译成 `JavaScript`，但是需要一个 `JavaScript` 运行环境，比如 `Node.js` 或者浏览器环境。
+
+```shell
+# 编译
+tsc 03.hello-typescript.ts # 生成 03.hello-typescript.js 文件
+
+# 运行
+node 03.hello-typescript.js
+```
+
+如果每次为了查看 `TypeScript` 代码的运行效果，都通过经过两个步骤的话就太繁琐了。
+
+可以通过下面的两种方式来解决这个问题：
+
+1. 通过 webpack，配置本地的 `TypeScript` 编译环境和开启一个本地服务，可以直接运行在浏览器上
+2. 通过 `ts-node`库，为 `TypeScript` 的运行提供执行环境
+
+## 变量的声明
+
+在 `TypeScript` 中定义变量需要指定 **标识符** 的类型，声明的类型可以称为 **类型注解（`Type Annotation`）**。
+
+```txt
+var/let/const 标识符: 数据类型 = 值;
+```
