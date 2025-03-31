@@ -166,7 +166,7 @@ function printCoordinate(pt: { x: number; y: number }) {
 printCoordinate({ x: 3, y: 7 });
 ```
 
-> [!tip] 请注意
+> [!TIP] 请注意
 >
 > 1. 属性之间可以使用 `,` 或者 `;` 来分割，最后一个分隔符是可选的；
 > 2. 每个属性的类型部分也是可选的，如果不指定，那么就是 `any` 类型；
@@ -184,4 +184,16 @@ function printCoordinate(pt: { x: number; y: number; z?: number }) {
 
 printCoordinate({ x: 3, y: 7 });
 printCoordinate({ x: 3, y: 7, z: 10 });
+```
+
+## any 类型
+
+在某些情况下确实无法确定一个变量的类型，并且可能它会发生一些变化，这个时候可以使用 `any` 类型。
+
+`any` 类型表示任意类型，`any` 类型的变量可以赋值给任意类型的变量。
+
+```typescript
+let anyValue: any = 10;
+anyValue = "hello";
+anyValue = true;
 ```
