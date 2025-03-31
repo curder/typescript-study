@@ -197,3 +197,34 @@ let anyValue: any = 10;
 anyValue = "hello";
 anyValue = true;
 ```
+
+## `unknown` 类型
+
+`unknown` 类型表示未知类型，`unknown` 类型的变量可以赋值给任意类型的变量。
+
+```typescript
+let unknownValue: unknown = 10;
+unknownValue = "hello";
+unknownValue = true;
+```
+
+但是 `unknown` 类型的变量不能赋值给其他类型的变量。
+
+```typescript
+let unknownValue: unknown = "Hello World";
+unknownValue = 123;
+
+console.log(unknownValue); // 123
+
+// unknown 类型的变量不能赋值给其他类型的变量
+// let str: string = unknownValue; // Error: Type 'unknown' is not assignable to type 'string'.
+
+// unknown 类型默认情况下在上面进行任意的操作都是不允许的
+// 必须进行类型的校验(缩小)后才能进行对应的操作
+if (typeof unknownValue === "string") {
+  console.log(unknownValue.length);
+}
+```
+
+> [!WARNING] 注意
+> 和 `any` 类型有点类似，但是 `unknown` 类型的值上做任何事情都是不合法的；
