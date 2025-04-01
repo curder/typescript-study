@@ -145,3 +145,19 @@ console.log(sum([1, 2, 3]));
 
 console.log(sum([1, 2, 3], undefined));
 ```
+
+### [剩余参数](07.rest-parameters.ts)
+
+剩余参数（Rest Parameters），是指在函数定义时，可以指定一个参数，该参数可以接收任意数量的参数。
+
+```typescript
+function sum(...nums: number[]): number {
+  let res = 0;
+  for (let i = 0; i < nums.length; i++) {
+    res += nums[i];
+  }
+  return res;
+}
+
+console.log(sum(1, 2, 3)); // 6
+```
