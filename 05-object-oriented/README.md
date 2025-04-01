@@ -121,3 +121,32 @@ class Person {
 const p = new Person("lolo");
 p.name = "lolo2"; // 报错，因为 name 是只读的
 ```
+
+## getter 和 setter
+
+`getter` 和 `setter` 可以控制属性的访问和修改。
+
+- `getter`：获取属性的值。
+- `setter`：设置属性的值。
+
+```typescript
+class Person {
+  private _name: string;
+  constructor(name: string) {
+    this._name = name;
+  }
+  // getter
+  get name() {
+    return this._name;
+  }
+  // setter 
+  set name(value: string) {
+    this._name = value;
+  }
+}
+
+const p = new Person("lolo");
+console.log(p.name); // lolo
+p.name = "lolo2";
+console.log(p.name); // lolo2
+```
