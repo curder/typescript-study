@@ -201,3 +201,25 @@ console.log(getLength([1, 2, 3]));
 > [!NOTE]
 >
 > 在可能的情况下，尽量选择使用联合类型来实现
+
+## this 类型
+
+### this 默认类型
+
+在 TypeScript 中，默认情况下，`this` 的类型是 `any`。
+
+```typescript
+const obj = {
+  name: "obj",
+  getName() {
+    // 默认情况下, this是any类型
+    return this.name;
+  },
+};
+
+// 2. 普通函数
+function getName() {
+  // 默认情况下, this是any类型
+  return this;
+}
+```
