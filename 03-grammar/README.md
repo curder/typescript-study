@@ -2,7 +2,9 @@
 
 TypeScript 的类型系统允许使用多种运算符，从现有类型中构建新类型。
 
-## [type 类型别名](02.type.ts)
+## type 和 Interface
+
+### [type 类型别名](02.type.ts)
 
 使用 `type` 关键字和 `|` 符号来定义类型别名，类型别名可以是基本类型、对象类型、函数类型等。
 
@@ -17,7 +19,7 @@ function printCoord(pt: pointType) {
 }
 ```
 
-## [Interface 接口](03.interface.ts)
+### [Interface 接口](03.interface.ts)
 
 使用 `interface` 关键字来定义接口，接口可以是基本类型、对象类型、函数类型等。
 
@@ -36,7 +38,7 @@ function printCoord(pt: pointType) {
 }
 ```
 
-## [type 和 interface 的区别](04.diff-type-and-interface.ts)
+### [type 和 interface 的区别](04.diff-type-and-interface.ts)
 
 > [!NOTE]
 >
