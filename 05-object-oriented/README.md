@@ -265,3 +265,29 @@ interface IPerson {
   readonly age: number; // 只读属性
 }
 ```
+
+## 索引签名 Index Signatures
+
+索引签名是一种特殊的属性声明，它可以用来描述对象中属性的类型。
+
+```typescript
+type ICollection = {
+  // 索引签名
+  [key: number]: string | number;
+  length: number;
+};
+
+function iteratorCollection(collection: ICollection) {
+  for (let i = 0; i < collection.length; i++) {
+    console.log(collection[i]);
+  }
+}
+
+const tuple: [string, number] = ["Jack", 18];
+const array: string[] = ["Jack", "Tom"];
+
+iteratorCollection(tuple); // Jack 18
+iteratorCollection(array); // Jack Tom
+```
+
+一个索引签名的属性类型必须是 `string` 或 `number`。
