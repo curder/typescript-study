@@ -149,3 +149,33 @@ const student: IPerson & IStudent = {
 ```
 
 交叉类型一般用于合并多个类型的属性。
+
+## as 类型断言
+
+有时候 TypeScript 无法获取具体的类型信息，这个需要使用类型断言（Type Assertions）。
+
+比如通过 `document.getElementById` 获取 DOM 元素，TypeScript 只知道该函数会返回 HTMLElement ，但并不知道它具体的类型：
+
+```typescript
+const className = document.querySelector(".img") as HTMLImageElement;
+const img = document.getElementById("img") as HTMLImageElement;
+const div = document.getElementById("div") as HTMLDivElement;
+const input = document.getElementById("input") as HTMLInputElement;
+```
+
+TypeScript 只允许类型断言转换为 更具体 或者 不太具体 的类型版本，此规则可防止不可能的强制转换。
+
+比如转换成具体类型：
+
+```typescript
+const age = 18;
+const age2 = age as string; // 报错，因为 string 类型不是 number 类型的子类型
+```
+
+或转换成不太具体的类型后再转换成更具体的类型（一般不推荐这样做，会导致意想不到的问题）：
+
+```typescript
+const age = 18;
+const age3 = age as unknown as string; //【合法】 类型断言：将 number 类型断言为 unknown 类型，再将 unknown 类型断言为 string 类型
+const age4 = age as any as string; //【合法】 类型断言：将 number 类型断言为 any 类型，再将 any 类型断言为 string 类型
+```
