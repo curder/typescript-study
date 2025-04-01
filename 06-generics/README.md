@@ -54,3 +54,36 @@ console.log(foo("Jack", 1));
 - `N` 表示 Number
 - `U` 表示 Unknown
 - `O` 表示 Object
+
+## 泛型接口
+
+在定义接口时，为接口中的属性或方法定义泛型类型，在使用接口时，再指定具体的类型。
+
+```typescript
+interface IUser<T> {
+  name: T;
+  age: number;
+  slogan: T;
+}
+
+const user1: IUser<string> = {
+  name: "Jack"
+  age: 18,
+  slogan: "Hello World",
+```
+
+也可以给接口的属性指定默认类型：
+
+```typescript
+interface IUser<T = string> {
+  name: T;
+  age: number;
+  slogan: T;
+}
+
+const user1: IUser = {
+  name: "Jack"
+  age: 18,
+  slogan: "Hello World",
+}
+```
