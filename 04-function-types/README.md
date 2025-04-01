@@ -186,3 +186,18 @@ console.log(add("1", "2"));
 // add(1, "2"); // 报错，因为实现签名中没有定义 number + string 的情况，只能是 number + number 或者 string + string
 // add("1", 2); // 报错，因为实现签名中没有定义 string + number 的情况，只能是 number + number 或者 string + string
 ```
+
+联合类型和重载签名的选择问题：
+
+```typescript
+// 定义一个函数，可以传入字符串或者数组，获取它们的长度。
+function getLength(x: string | any[]): number {
+  return x.length;
+}
+console.log(getLength("123"));
+console.log(getLength([1, 2, 3]));
+```
+
+> [!NOTE]
+>
+> 在可能的情况下，尽量选择使用联合类型来实现
