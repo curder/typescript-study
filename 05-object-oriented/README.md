@@ -37,3 +37,38 @@ class Person {
 const p = new Person("lolo", 18);
 console.log(p.name, p.age); // lolo 18
 ```
+
+## 类的继承
+
+类的继承使用 `extends` 关键字，子类可以继承父类的属性和方法。
+
+- 子类可以重写父类的方法。
+- 子类可以添加新的属性和方法。
+- 子类可以使用 `super` 关键字调用父类的构造函数。
+
+```typescript
+class Person {
+  name: string;
+  age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+  eating() {
+    console.log(this.name + " is eating");
+  }
+}
+
+class Student extends Person {
+  constructor(name: string, age: number) {
+    super(name, age);
+  }
+  eating() {
+    super.eating();
+    console.log(this.name + " is eating");
+  }
+}
+
+const s = new Student("lolo", 18);
+s.eating(); // lolo is eating
+```
