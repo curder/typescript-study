@@ -139,7 +139,7 @@ class Person {
   get name() {
     return this._name;
   }
-  // setter 
+  // setter
   set name(value: string) {
     this._name = value;
   }
@@ -150,3 +150,21 @@ console.log(p.name); // lolo
 p.name = "lolo2";
 console.log(p.name); // lolo2
 ```
+
+## 参数属性 Parameter Properties
+
+参数属性是一种简化的类的属性声明的方式，它可以在类的构造函数中直接声明属性。
+
+```typescript
+class Person {
+  // 类的参数属性，通过 public 关键字来声明，这样就可以在类的内部和外部都可以访问到该属性
+  constructor(public name: string, public age: number, public height: number) {}
+}
+
+const p = new Person("Jack", 18, 180);
+console.log(p.name); // Jack
+console.log(p.age); // 18
+console.log(p.height); // 180
+```
+
+在构造函数参数前添加一个可见性修饰符 `public`、`private`、`protected` 或者 `readonly` 来创建参数属性，最后这些类属性字段也会得到这些修饰符；
