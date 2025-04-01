@@ -289,3 +289,85 @@ const info2 = { name: "jack", age: 18 }; // 对象
 
 const info3: [string, number] = ["jack", 18]; // 元组
 ```
+
+## 枚举类型
+
+枚举类型是为数不多的 Typescript 特性有的特性之一：
+
+- 枚举其实就是将一组可能出现的值，一个个列举出来，定义在一个类型中，这个类型就是枚举类型；
+- 枚举允许开发者定义一组命名常量，常量可以是数字、字符串类型；
+
+```typescript
+enum Direction {
+  Up = 1,
+  Down,
+  Left,
+  Right,
+}
+
+const d1: Direction = Direction.Up;
+const d2: Direction = Direction.Down;
+const d3: Direction = Direction.Left;
+const d4: Direction = Direction.Right;
+console.log(d1, d2, d3, d4); // 1 2 3 4
+
+function turnDirection(direction: Direction) {
+  switch (direction) {
+    case Direction.Up:
+      console.log("Turn Up");
+      break;
+    case Direction.Down:
+      console.log("Turn Down");
+      break;
+    case Direction.Left:
+      console.log("Turn Left");
+      break;
+    case Direction.Right:
+      console.log("Turn Right");
+      break;
+    default:
+      console.log("Turn Around");
+      break;
+  }
+}
+
+turnDirection(Direction.Up); // Turn Up
+turnDirection(Direction.Down); // Turn Down
+turnDirection(Direction.Left); // Turn Left
+turnDirection(Direction.Right); // Turn Right
+```
+
+### 枚举类型的值
+
+枚举类型默认是有值的，比如上面的枚举，默认值是这样的：
+
+```typescript
+enum Direction {
+  Up = 1, // 1
+  Down, // 2
+  Left, // 3
+  Right, // 4
+}
+```
+
+当然也可以给枚举其它值，这个时候会从 100 进行递增
+
+```typescript
+enum Direction {
+  Up = 100, // 100
+  Down, // 101
+  Left, // 102
+  Right, // 103
+}
+```
+
+也可以给他们赋值其他的类型：
+
+```typescript
+enum Direction {
+  Up = 1, // 1
+  Down, // 2
+  Left = "left", // left
+  Right = "right", // right
+}
+```
