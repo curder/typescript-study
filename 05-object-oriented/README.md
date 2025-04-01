@@ -106,3 +106,18 @@ console.log(p.name); // lolo
 // console.log(p.height); // 报错，因为 height 是 protected 的
 // console.log(p.eating()); // 报错，因为 eating 是 private 的
 ```
+
+## 只读属性 `readonly`
+
+只读属性 `readonly` 只能在声明时或者构造函数中赋值，不能在类的内部修改。
+
+```typescript
+class Person {
+  readonly name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+const p = new Person("lolo");
+p.name = "lolo2"; // 报错，因为 name 是只读的
+```
