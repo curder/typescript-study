@@ -125,7 +125,7 @@ function printId(id: number | string) {
 }
 ```
 
-## [Intersection Type 交叉类型](01.intersection-type.ts)
+## [Intersection Type 交叉类型](05.intersection-type.ts)
 
 交叉类型使用 `type` 关键字和 **`&`** 符号定义，是由两个或者多个其他类型组成的类型，表示必须是这些类型中的所有值。
 
@@ -152,7 +152,7 @@ const student: IPerson & IStudent = {
 
 ## 类型断言
 
-### as 类型断言
+### [as 类型断言](06.as-type-assertion.ts)
 
 有时候 TypeScript 无法获取具体的类型信息，这个需要使用类型断言（Type Assertions）。
 
@@ -182,7 +182,7 @@ const age3 = age as unknown as string; //【合法】 类型断言：将 number 
 const age4 = age as any as string; //【合法】 类型断言：将 number 类型断言为 any 类型，再将 any 类型断言为 string 类型
 ```
 
-### 非空类型断言
+### [非空类型断言](07.non-null-assertion.ts)
 
 非空类型断言（Non-null Assertion）是一种类型断言，用于告诉 TypeScript 某个值不可能为 `null` 或 `undefined` 。
 
