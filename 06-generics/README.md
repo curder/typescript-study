@@ -87,3 +87,18 @@ const user1: IUser = {
   slogan: "Hello World",
 }
 ```
+
+## 泛型类
+
+在定义类时，为类中的属性定义泛型类型，在使用类时，再指定具体的类型。
+
+```typescript
+class Point<T = number> {
+  constructor(public x: T, public y: T) {}
+}
+
+const p1 = new Point(1, 2);
+const p2 = new Point<string>("1", "2");
+console.log(p1);
+console.log(p2);
+```
