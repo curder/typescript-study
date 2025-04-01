@@ -232,7 +232,7 @@ function getName() {
 的指定 `this`。
 
 ```typescript
-// 1. 对象中函数的 this 默认类型是 any
+// 1. 对象函数
 const obj = {
   name: "obj",
   getName(this: {}) {
