@@ -101,7 +101,9 @@ factory(Person);
 
 构造签名（ Construct Signatures ），方法是在调用签名前面加一个 `new` 关键词。
 
-## [可选参数](05.optional-parameters.ts)
+## 参数
+
+### [可选参数](05.optional-parameters.ts)
 
 函数的可选参数（Optional Parameters），是指在函数定义时，可以指定某些参数为可选参数。
 
@@ -118,3 +120,28 @@ console.log(foo(1)); // 1
 >
 > 可选参数的默认值为 `undefined`。
 > 可选参数必须放在所有参数的最后面。
+
+### [默认参数](06.default-parameters.ts)
+
+默认参数（Default Parameters），是指在函数定义时，可以指定某些参数的默认值。
+
+默认参数的语法是在参数名后面加上一个等号（`=`），然后加上默认值。
+
+默认参数有如下特征：
+
+1. 参数的类型注解可以身略，Typescript 会进行类型推导。
+
+2. 有默认值的参数，在调用时，可以接收 `undefined`。
+
+```typescript
+function sum(nums: number[], start = 0, end = nums.length): number {
+  let res = 0;
+  for (let i = start; i < end; i++) {
+    res += nums[i];
+  }
+  return res;
+}
+console.log(sum([1, 2, 3]));
+
+console.log(sum([1, 2, 3], undefined));
+```
