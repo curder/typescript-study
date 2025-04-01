@@ -4,7 +4,7 @@ TypeScript 的类型系统允许使用多种运算符，从现有类型中构建
 
 ## [type 类型别名](02.type.ts)
 
-使用 `type` 关键字来定义类型别名，类型别名可以是基本类型、对象类型、函数类型等。
+使用 `type` 关键字和 `|` 符号来定义类型别名，类型别名可以是基本类型、对象类型、函数类型等。
 
 ```typescript
 type pointType = { x: number; y: number; z?: number };
@@ -122,3 +122,28 @@ function printId(id: number | string) {
   }
 }
 ```
+
+## [Intersection Type 交叉类型](01.intersection-type.ts)
+
+交叉类型使用 `type` 关键字和 **`&`** 符号定义，是由两个或者多个其他类型组成的类型，表示必须是这些类型中的所有值。
+
+交叉类型中的每一个类型被称之为交叉成员（intersection's members ）。
+
+```typescript
+interface IPerson {
+  name: string;
+  age: number;
+}
+interface IStudent {
+  study: () => void;
+}
+const student: IPerson & IStudent = {
+  name: "John",
+  age: 18,
+  study: () => {
+    console.log("study");
+  },
+};
+```
+
+交叉类型一般用于合并多个类型的属性。
