@@ -246,3 +246,68 @@ function getName(this: { name: string }) {
 }
 getName.call({ name: "Curder" });
 ```
+
+## this 内置工具
+
+Typescript 提供了一些工具类型来辅助进行常见的类型转换，这些类型全局可用。
+
+### ThisParameterType
+
+用于提取一个函数类型的 this (opens new window)参数类型，如果这个函数类型没有 `this` 参数返回 `unknown`。
+
+```typescript
+function foo(this: { name: string }) {
+  console.log(this);
+}
+
+// 获取函数类型
+type fooType = typeof foo;
+
+// 获取 fooType 类型中的 this 的类型
+type fooThisType = ThisParameterType<fooType>; // {name: string;}
+```
+
+### OmitThisParameter
+
+用于移除一个函数类型的 this (opens new window)参数。
+
+```typescript
+function foo(this: { name: string }) {
+  console.log(this);
+}
+// 获取函数类型
+type fooType = typeof foo;
+// 移除 fooType 类型中的 this 参数
+type fooThisType = OmitThisParameter<fooType>; // () => void
+```
+
+### ThisType
+
+这个类型不返回一个转换过的类型，它被用作标记一个上下文的 `this` 类型。
+
+```typescript
+interface IState {
+  name: string;
+  age: number;
+}
+interface IStore {
+  state: IState;
+  eating: () => void;
+  running: () => void;
+}
+// 通过 ThisType 绑定 this 的上下文
+const store: IStore & ThisType<IState> = {
+  state: {
+    name: "张三",
+    age: 18,
+  },
+  eating() {
+    console.log(this.name);
+  },
+  running() {
+    console.log(this.age);
+  },
+};
+
+store.eating.call(store.state);
+```
