@@ -44,3 +44,32 @@ calc(function (a: number, b: number): number {
   return a - b;
 }); // -10
 ```
+
+## 调用签名
+
+在 JavaScript 中，函数除了可以被调用，自己也是可以有属性值。
+
+如果需要描述一个带有属性的函数，可以在一个对象类型中写一个调用签名（call signatures）。
+
+```typescript
+interface IBar {
+  name: string;
+  age: number;
+  // 函数调用签名
+  (x: number): number;
+}
+const bar: IBar = (x: number): number => {
+  return x;
+};
+
+bar.name = "zhangsan";
+bar.age = 20;
+bar(1);
+```
+
+> [!NOTE]
+>
+> 如何选择函数表达式或调用签名？
+>
+> - 如果只是描述函数类型本身，使用函数类型表达式(Function Type Expressions)
+> - 如果需要描述函数作为对象可以被调用，同时也有其他属性，使用调用签名(Call Signatures)
