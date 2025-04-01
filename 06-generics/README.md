@@ -102,3 +102,46 @@ const p2 = new Point<string>("1", "2");
 console.log(p1);
 console.log(p2);
 ```
+
+## 泛型约束
+
+有时候希望传入的类型有某些共性，但是这些共性可能不是在同一种类型中：
+
+### `extends`
+
+使用 `extends` 关键字来约束泛型的类型，使其只能是某个类型的子类型：
+
+```typescript
+interface ILength {
+  length: number;
+}
+// 使用 extens 关键字来约束泛型的类型
+function getLength<T extends ILength>(arg: T): T {
+  return arg;
+}
+
+getLength("aaa");
+getLength([1, 2, 3]);
+getLength({ length: 1 });
+```
+
+### `keyof`
+
+使用 `keyof` 关键字来约束泛型的类型，使其只能是对象的属性：
+
+```typescript
+function getProperty<O, K extends keyof O>(obj: O, key: K) {
+  return obj[key];
+}
+
+const obj = {
+  name: "Jack",
+  age: 18,
+  height: 180,
+};
+
+const name = getProperty(obj, "name");
+const age = getProperty(obj, "age");
+const height = getProperty(obj, "height");
+// const weight = getProperty(obj, "weight"); // 类型“"weight"”的参数不能赋给类型“"name" | "age" | "height"”的参数。
+```
