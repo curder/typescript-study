@@ -110,7 +110,6 @@ let u: undefined = undefined;
 
 ## 函数类型
 
-
 ### 函数的参数类型
 
 函数是 `JavaScript` 非常重要的组成部分，在 `TypeScript` 中允许指定函数的参数类型。
@@ -373,4 +372,30 @@ enum Direction {
   Left = "left", // left
   Right = "right", // right
 }
+```
+
+## 映射类型 Mapped Types
+
+有时一个类型需要基于另外一个类型，但是又不想拷贝一份，此时可以使用映射类型。
+
+映射类型使用了 PropertyKey 联合类型的泛型实现，其中 PropertyKey 多是通过 `keyof` 操作符创建，然后遍历键名创建类型。
+
+```typescript
+type MappedPerson<T> = {
+  // 使用索引签名
+  [P in keyof T]: T[P];
+};
+
+interface IPerson {
+  name: string;
+  age: number;
+}
+
+type newPerson = MappedPerson<IPerson>;
+const p: newPerson = {
+  name: "Jack",
+  age: 18,
+};
+console.log(p.name); // Jack
+console.log(p.age); // 18
 ```

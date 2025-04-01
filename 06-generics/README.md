@@ -145,3 +145,60 @@ const age = getProperty(obj, "age");
 const height = getProperty(obj, "height");
 // const weight = getProperty(obj, "weight"); // 类型“"weight"”的参数不能赋给类型“"name" | "age" | "height"”的参数。
 ```
+
+## 映射类型 Mapped Types
+
+有时一个类型需要基于另外一个类型，但是又不想拷贝一份，此时可以使用映射类型。
+
+映射类型使用了 PropertyKey 联合类型的泛型实现，其中 PropertyKey 多是通过 `keyof` 操作符创建，然后遍历键名创建类型。
+
+```typescript
+type MappedPerson<T> = {
+  // 使用索引签名
+  [P in keyof T]: T[P];
+};
+
+interface IPerson {
+  name: string;
+  age: number;
+}
+
+type newPerson = MappedPerson<IPerson>;
+const p: newPerson = {
+  name: "Jack",
+  age: 18,
+};
+console.log(p.name); // Jack
+console.log(p.age); // 18
+```
+
+### 映射符号
+
+在使用映射类型时，有两个额外的修饰符可能会用到：
+
+- 一个是 `readonly`，用于设置属性只读；
+- 一个是 `?` ，用于设置属性可选；
+
+可以通过前缀 `-` 或者 `+` 删除或者添加这些修饰符，如果没有写前缀，相当于使用了 `+` 前缀。
+
+```typescript
+type MappedOptionalPerson<T> = {
+  // 使用索引签名,添加可选和只读属性
+  readonly [P in keyof T]?: T[P];
+};
+
+type MappedRequiredPerson<T> = {
+  // 使用索引签名，删除可选和只读属性
+  -readonly [P in keyof T]-?: T[P];
+};
+
+interface IPerson {
+  readonly name: string;
+  age: number;
+  height?: number;
+  address?: string;
+}
+
+type IPersonOptional = MappedOptionalPerson<IPerson>;
+type IPersonRequired = MappedRequiredPerson<IPerson>;
+```
