@@ -5,3 +5,4 @@
 - [Typescript 语法](03-grammar/README.md)
 - [Typescript 函数类型](04-function-types/README.md)
 - [Typescript 面向对象](05-object-oriented/README.md)
+- [Typescript 泛型](06-generics/README.md)
