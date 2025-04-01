@@ -72,3 +72,37 @@ class Student extends Person {
 const s = new Student("lolo", 18);
 s.eating(); // lolo is eating
 ```
+
+## 类的修饰符
+
+类的修饰符可以控制类的属性和方法的访问权限。
+
+- `public`：公共的，可以在类的内部和外部访问。
+- `private`：私有的，只能在类的内部访问。
+- `protected`：受保护的，只能在类的内部和子类中访问。
+
+`public` 是默认的修饰符，`private` 和 `protected` 可以在类的属性和方法前面添加。
+
+```typescript
+class Person {
+  // 声明成员属性
+  name: string;
+  private age: number;
+  protected height: number;
+
+  constructor(name: string, age: number, height: number) {
+    this.name = name;
+    this.age = age;
+    this.height = height;
+  }
+  private eating() {
+    console.log(this.name + " is eating");
+  }
+}
+
+const p = new Person("lolo", 18, 180);
+console.log(p.name); // lolo
+// console.log(p.age); // 报错，因为 age 是 private 的
+// console.log(p.height); // 报错，因为 height 是 protected 的
+// console.log(p.eating()); // 报错，因为 eating 是 private 的
+```
