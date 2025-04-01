@@ -100,3 +100,21 @@ factory(Person);
 ```
 
 构造签名（ Construct Signatures ），方法是在调用签名前面加一个 `new` 关键词。
+
+## [可选参数](05.optional-parameters.ts)
+
+函数的可选参数（Optional Parameters），是指在函数定义时，可以指定某些参数为可选参数。
+
+可选参数的语法是在参数名后面加上一个问号（`?`）。
+
+```typescript
+function foo(x: number, y?: number) {
+  return x + (y || 0);
+}
+console.log(foo(1)); // 1
+```
+
+> [!NOTE]
+>
+> 可选参数的默认值为 `undefined`。
+> 可选参数必须放在所有参数的最后面。
