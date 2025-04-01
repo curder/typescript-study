@@ -246,3 +246,22 @@ console.log(p.name); // Jack
 console.log(p.age); // 18
 p.eating(); // Jack is eating
 ```
+
+## 对象类型属性修饰符 Property Modifiers
+
+对象类型中的属性可以说明它的类型、属性是否可选、属性是否只读等。
+
+- 可选属性（Optional Property）：使用 `?` 表示该属性可选。
+- 只读属性（Readonly Property）：使用 `readonly` 表示该属性只读，顾名思义标记为 `readonly` 的属性不能被写入。
+
+```typescript
+type Person = {
+  name?: string; // 可选属性
+  readonly age: number; // 只读属性
+};
+
+interface IPerson {
+  name?: string; // 可选属性
+  readonly age: number; // 只读属性
+}
+```
