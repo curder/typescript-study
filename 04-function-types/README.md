@@ -223,3 +223,26 @@ function getName() {
   return this;
 }
 ```
+
+### this 明确类型
+
+创建一个 `tsconfig.json` 文件，并且在其中告知 `this` 必须明确指定（不能是隐式的）。
+
+在设置了 `noImplicitThis: true` 时， Typescript 会根据上下文推导 this，但是在不能正确推导时会报错，需要明确
+的指定 `this`。
+
+```typescript
+// 1. 对象中函数的 this 默认类型是 any
+const obj = {
+  name: "obj",
+  getName(this: {}) {
+    console.log(this);
+  },
+};
+
+// 2. 普通函数
+function getName(this: { name: string }) {
+  console.log(this);
+}
+getName.call({ name: "Curder" });
+```
