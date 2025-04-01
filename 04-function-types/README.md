@@ -103,6 +103,8 @@ factory(Person);
 
 ## 参数
 
+函数的参数包括：必选参数、可选参数、默认参数和剩余参数。
+
 ### [可选参数](05.optional-parameters.ts)
 
 函数的可选参数（Optional Parameters），是指在函数定义时，可以指定某些参数为可选参数。
