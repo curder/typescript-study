@@ -330,3 +330,32 @@ console.log(s.weight); // 180
 console.log(s.score); // 100
 s.sayHello(); // Hello
 ```
+
+## 接口的实现
+
+接口可以被类实现，类实现接口后，必须实现接口中所有的属性和方法。
+
+```typescript
+interface ISwimmer {
+  swim(): void;
+}
+interface IRunner {
+  run(): void;
+}
+
+// 类实现接口，通过 implements 关键字来实现
+class Person implements ISwimmer, IRunner {
+  swim() {
+    console.log("swim");
+  }
+  run() {
+    console.log("run");
+  }
+}
+
+const p = new Person();
+p.swim();
+p.run();
+```
+
+类可以实现多个接口，多个接口之间使用 `,` 分隔。
