@@ -168,3 +168,63 @@ console.log(p.height); // 180
 ```
 
 在构造函数参数前添加一个可见性修饰符 `public`、`private`、`protected` 或者 `readonly` 来创建参数属性，最后这些类属性字段也会得到这些修饰符；
+
+## 抽象类 abstract
+
+抽象类是一种不能被实例化的类，它只能被继承。
+
+抽象类中可以包含抽象方法，抽象方法是一种没有实现的方法，它只能在抽象类中声明，不能在抽象类的实例中调用。
+
+抽象类的作用是为子类提供一个基类，子类必须实现抽象类中的抽象方法。
+
+```typescript
+// 计算图形的面积
+abstract class Shape {
+  // 抽象方法，子类必须实现
+  abstract getArea(): number;
+}
+
+// 圆形
+class Circle extends Shape {
+  constructor(public radius: number) {
+    super();
+  }
+  // 实现抽象方法
+  getArea() {
+    return this.radius * this.radius * Math.PI;
+  }
+}
+// 矩形
+class Rectangle extends Shape {
+  constructor(public width: number, public height: number) {
+    super();
+  }
+  // 实现抽象方法
+  getArea() {
+    return this.width * this.height;
+  }
+}
+// 三角形
+class Triangle extends Shape {
+  constructor(public base: number, public height: number) {
+    super();
+  }
+  // 实现抽象方法
+  getArea() {
+    return (this.base * this.height) / 2;
+  }
+}
+
+function printArea(shape: Shape) {
+  console.log(shape.getArea());
+}
+
+printArea(new Circle(10)); // 314.1592653589793
+printArea(new Rectangle(10, 20)); // 200
+printArea(new Triangle(10, 20)); // 100
+```
+
+抽象类有如下的特点：
+
+- 抽象类是不能被实例化（也就是不能通过 `new` 创建）
+- 抽象方法必须被子类实现，否则该类必须是一个抽象类
