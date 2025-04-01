@@ -228,3 +228,21 @@ printArea(new Triangle(10, 20)); // 100
 
 - 抽象类是不能被实例化（也就是不能通过 `new` 创建）
 - 抽象方法必须被子类实现，否则该类必须是一个抽象类
+
+## 类的类型
+
+类本生也可以作为类型使用，和接口类似。
+
+```typescript
+class Person {
+  constructor(public name: string, public age: number, public height: number) {}
+  eating() {
+    console.log(`${this.name} is eating`);
+  }
+}
+
+const p: Person = new Person("Jack", 18, 180);
+console.log(p.name); // Jack
+console.log(p.age); // 18
+p.eating(); // Jack is eating
+```
