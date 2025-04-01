@@ -150,7 +150,9 @@ const student: IPerson & IStudent = {
 
 交叉类型一般用于合并多个类型的属性。
 
-## as 类型断言
+## 类型断言
+
+### as 类型断言
 
 有时候 TypeScript 无法获取具体的类型信息，这个需要使用类型断言（Type Assertions）。
 
@@ -179,3 +181,31 @@ const age = 18;
 const age3 = age as unknown as string; //【合法】 类型断言：将 number 类型断言为 unknown 类型，再将 unknown 类型断言为 string 类型
 const age4 = age as any as string; //【合法】 类型断言：将 number 类型断言为 any 类型，再将 any 类型断言为 string 类型
 ```
+
+### 非空类型断言
+
+非空类型断言（Non-null Assertion）是一种类型断言，用于告诉 TypeScript 某个值不可能为 `null` 或 `undefined` 。
+
+```typescript
+interface IPerson {
+  name: string;
+  age: number;
+  friend?: {
+    name: string;
+  };
+}
+
+const person: IPerson = {
+  name: "John",
+  age: 18,
+};
+
+// 使用可选链操作符 ?. 访问对象的属性
+console.log(person.friend?.name); // undefined
+
+// 使用非空类型断言 !. 对属性赋值（非空类型断言需要确保对象有值的情况才能使用）
+person.friend!.name = "Jane";
+console.log(person);
+```
+
+非空断言使用的是 `!.` ，表示可以确定某个标识符是有值的，跳过 Typescript 在编译阶段对它的检测。
