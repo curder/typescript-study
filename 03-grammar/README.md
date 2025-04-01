@@ -272,3 +272,103 @@ const requestInfo3 = {
 } as const;
 request(requestInfo3.url, requestInfo3.method);
 ```
+
+## 类型缩小
+
+类型缩小是指在某些情况下，TypeScript 会根据代码的执行情况，将变量的类型缩小到更具体的类型。
+
+常见的类型缩小方式有：
+
+- `typeof` 常用的类型缩小方式
+- `===`、`!==` 平等缩小
+- `instanceof`
+- `in`
+- `is`
+
+### typeof
+
+在 TypeScript 中，检查返回的值 typeof 是一种类型保护，因为 TypeScript 对如何 typeof 操作不同的值进行编码。
+
+```typescript
+function printId(id: number | string) {
+  if (typeof id === "string") {
+    // 在这个分支中，id 的类型被收窄为 string
+    console.log(id.toUpperCase());
+  } else {
+    // 否则在这个分支中，id 的类型被收窄为 number
+    console.log(id);
+  }
+}
+```
+
+### `===`、`!==` 平等缩小
+
+使用 `switch` 或者相等的一些运算符来表达相等性。
+
+```typescript
+type Direction = "left" | "right" | "up" | "down";
+function getDistance(direction: Direction) {
+  switch (direction) {
+    case "left":
+      // 在这个分支中，direction 的类型被收窄为 "left"
+      return 1;
+    case "right":
+      // 在这个分支中，direction 的类型被收窄为 "right"
+      return 2;
+    case "up":
+      // 在这个分支中，direction 的类型被收窄为 "up"
+      return 3;
+    case "down":
+      // 在这个分支中，direction 的类型被收窄为 "down"
+      return 4;
+    default:
+      // 在这个分支中，direction 的类型被收窄为 never
+      const _exhaustiveCheck: never = direction;
+      return _exhaustiveCheck;
+  }
+}
+```
+
+### instanceof
+
+使用 `instanceof` 运算符来检查对象是否属于某个类。
+
+```typescript
+function printDate(date: string | Date) {
+  if (date instanceof Date) {
+    // 在这个分支中，date 的类型被收窄为 Date
+    console.log(date.toUTCString());
+  } else {
+    // 否则在这个分支中，date 的类型被收窄为 string
+    console.log(new Date(date).toUTCString());
+  }
+}
+```
+
+### in
+
+使用 `in` 运算符来检查对象是否具有某个属性。
+
+如果指定的属性在指定的对象或其原型链中，则 `in` 运算符返回 `true` 。
+
+```typescript
+type Fish = { swim: () => void }; // 鱼
+type Bird = { fly: () => void }; // 鸟
+/**
+ * 移动动物
+ * @param animal 动物
+ * @returns
+ */
+function move(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    // 在这个分支中，animal 的类型被收窄为 Fish
+    return animal.swim();
+  } else {
+    // 否则在这个分支中，animal 的类型被收窄为 Bird
+    return animal.fly();
+  }
+}
+
+move({ fly: () => {} });
+move({ swim: () => {} });
+```
