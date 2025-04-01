@@ -73,3 +73,30 @@ bar(1);
 >
 > - 如果只是描述函数类型本身（函数允许被调用），使用函数类型表达式(Function Type Expressions)
 > - 如果需要描述函数作为对象可以被调用，同时也有其他属性，使用调用签名(Call Signatures)
+
+## 构造签名
+
+JavaScript 函数也可以使用 `new` 操作符调用，当被调用的时候，TypeScript 会认为这是一个构造函数(constructors)，因为会产生一个新对象。
+
+构造签名（Constructor Signatures）用于描述类的构造函数类型。
+
+```typescript
+class Person {}
+
+interface PersonConstructor {
+  // 构造签名
+  new (): Person;
+}
+
+function factory(fn: PersonConstructor) {
+  const f = new fn();
+
+  console.log(typeof f);
+
+  return f;
+}
+
+factory(Person);
+```
+
+构造签名（ Construct Signatures ），方法是在调用签名前面加一个 `new` 关键词。
