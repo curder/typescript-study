@@ -163,3 +163,26 @@ function sum(...nums: number[]): number {
 
 console.log(sum(1, 2, 3)); // 6
 ```
+
+## 函数的重载 `overload signatures`
+
+在 TypeScript 中，可以编写不同的重载签名（overload signatures）来表示函数可以以不同的方式进行调用；
+
+一般是编写两个或者以上的重载签名，再去编写一个通用的函数以及实现。
+
+```typescript
+// 重载签名
+function add(x: number, y: number): number;
+function add(x: string, y: string): string;
+
+// 通用函数
+function add(x: any, y: any): any {
+  return x + y;
+}
+
+// 调用
+console.log(add(1, 2));
+console.log(add("1", "2"));
+// add(1, "2"); // 报错，因为实现签名中没有定义 number + string 的情况，只能是 number + number 或者 string + string
+// add("1", 2); // 报错，因为实现签名中没有定义 string + number 的情况，只能是 number + number 或者 string + string
+```
