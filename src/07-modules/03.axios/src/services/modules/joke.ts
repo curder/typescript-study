@@ -7,11 +7,6 @@ interface IRandomJoke {
   id: number;
 }
 
-axiosRequest2
-  .request<IRandomJoke>({
-    url: "/random_joke",
-    method: "GET",
-  })
-  .then((res) => {
-    console.log(res);
-  });
+axiosRequest2.get<IRandomJoke>("/random_joke").then((res) => {
+  console.log(res);
+});

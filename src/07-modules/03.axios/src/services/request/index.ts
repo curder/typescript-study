@@ -69,24 +69,24 @@ class Request {
     });
   }
 
-  get<T = any>(config: RequestConfig<T>) {
-    return this.request<T>({ ...config, method: "GET" });
+  get<T = any>(url: string, params?: any, config: RequestConfig<T> = {}) {
+    return this.request<T>({ ...config, url, params, method: "GET" });
   }
 
-  post<T = any>(config: RequestConfig<T>) {
-    return this.request<T>({ ...config, method: "POST" });
+  post<T = any>(url: string, data?: any, config: RequestConfig<T> = {}) {
+    return this.request<T>({ ...config, url, data, method: "POST" });
   }
 
-  delete<T = any>(config: RequestConfig<T>) {
-    return this.request<T>({ ...config, method: "DELETE" });
+  delete<T = any>(url: string, params?: any, config: RequestConfig<T> = {}) {
+    return this.request<T>({ ...config, url, params, method: "DELETE" });
   }
 
-  patch<T = any>(config: RequestConfig<T>) {
-    return this.request<T>({ ...config, method: "PATCH" });
+  patch<T = any>(url: string, data?: any, config: RequestConfig<T> = {}) {
+    return this.request<T>({ ...config, url, data, method: "PATCH" });
   }
 
-  put<T = any>(config: RequestConfig<T>) {
-    return this.request<T>({ ...config, method: "PUT" });
+  put<T = any>(url: string, data?: any, config: RequestConfig<T> = {}) {
+    return this.request<T>({ ...config, url, data, method: "PUT" });
   }
 }
 

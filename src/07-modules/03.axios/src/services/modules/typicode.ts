@@ -7,14 +7,9 @@ interface IPostData {
   body: string;
 }
 
-axiosRequest
-  .request<IPostData[]>({
-    url: "/posts",
-    method: "GET",
-  })
-  .then((res) => {
-    console.log(res);
-  });
+axiosRequest.get<IPostData[]>("/posts").then((res) => {
+  console.log(res);
+});
 
 // 添加局部拦截器
 axiosRequest
