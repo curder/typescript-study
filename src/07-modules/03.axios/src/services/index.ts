@@ -4,6 +4,9 @@ import Request from "@/services/request";
 const axiosRequest = new Request({
   baseURL: typicodeBaseUrl,
   timeout: timeout,
+  showLoading: true,
+  errorMessageShow: true,
+  cancelDuplicate: true, // 实例级别配置，所有请求默认启用取消重复请求
 });
 
 export const axiosRequest2 = new Request({
