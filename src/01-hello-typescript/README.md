@@ -6,20 +6,20 @@
 
 - 始于 `JavaScript`，归于 `JavaScript`
 
-  - `TypeScript` 从今天数以百万计的 `JavaScript` 开发者所熟悉的语法和语义开始
-  - 使用现有的 `JavaScript` 代码，包括流行的 `JavaScript` 库，并从 `JavaScript` 代码中调用 `TypeScript` 代码
-  - `TypeScript` 可以编译出纯净、 简洁的 `JavaScript` 代码，并且可以运行在任何浏览器上、`Node.js` 环境中和任何支持 `ECMAScript 3`（或
+    - `TypeScript` 从今天数以百万计的 `JavaScript` 开发者所熟悉的语法和语义开始
+    - 使用现有的 `JavaScript` 代码，包括流行的 `JavaScript` 库，并从 `JavaScript` 代码中调用 `TypeScript` 代码
+    - `TypeScript` 可以编译出纯净、 简洁的 `JavaScript` 代码，并且可以运行在任何浏览器上、`Node.js` 环境中和任何支持 `ECMAScript 3`（或
     更高版本）的 JavaScript 引擎中
 
 - `TypeScript` 是一个强大的工具，用于构建大型项目
 
-  - 类型允许 `JavaScript` 开发者在开发 `JavaScript` 应用程序时使用高效的开发工具和常用操作比如静态检查和代码重构
-  - 类型是可选的，类型推断让一些类型的注释使代码的静态验证有很大的不同。类型允许在定义软件组件之间的接口和洞察现有 `JavaScript` 库的行为
+    - 类型允许 `JavaScript` 开发者在开发 `JavaScript` 应用程序时使用高效的开发工具和常用操作比如静态检查和代码重构
+    - 类型是可选的，类型推断让一些类型的注释使代码的静态验证有很大的不同。类型允许在定义软件组件之间的接口和洞察现有 `JavaScript` 库的行为
 
 - 拥有先进的 `JavaScript`
 
-  - `TypeScript` 提供最新的和不断发展的 `JavaScript` 特性，包括那些来自 2015 年的 `ECMAScript` 和未来的提案中的特性，比如异步功能和 Decorators，以帮助建立健壮的组件
-  - 这些特性为高可信应用程序开发时是可用的，但是会被编译成简洁的 `ECMAScript3`（或更新版本）的 `JavaScript`
+    - `TypeScript` 提供最新的和不断发展的 `JavaScript` 特性，包括那些来自 2015 年的 `ECMAScript` 和未来的提案中的特性，比如异步功能和 Decorators，以帮助建立健壮的组件
+    - 这些特性为高可信应用程序开发时是可用的，但是会被编译成简洁的 `ECMAScript3`（或更新版本）的 `JavaScript`
 
 ## 采用 `Typescript` 的项目
 
@@ -68,7 +68,7 @@ node 03.hello-typescript.js
 
 在 `TypeScript` 中定义变量需要指定 **标识符** 的类型，声明的类型可以称为 **类型注解（`Type Annotation`）**。
 
-```txt
+```text
 var/let/const 标识符: 数据类型 = 值;
 ```
 
