@@ -1,13 +1,14 @@
+import { typicodeBaseUrl, jokeBaseUrl, timeout } from "./config";
 import Request from "./request";
 
 const axiosRequest = new Request({
-  baseURL: "https://jsonplaceholder.typicode.com/",
-  timeout: 5000,
+  baseURL: typicodeBaseUrl,
+  timeout: timeout,
 });
 
 export const axiosRequest2 = new Request({
-  baseURL: "https://official-joke-api.appspot.com/",
-  timeout: 10000,
+  baseURL: jokeBaseUrl,
+  timeout: timeout,
   interceptors: {
     requestSuccess(config) {
       // 在这里可以添加一些请求前的处理逻辑，比如添加请求头、修改请求参数等
