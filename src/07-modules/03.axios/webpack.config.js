@@ -1,16 +1,19 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+// 路径解析
+const pathReslove = (p) => path.resolve(__dirname, p);
+
 module.exports = {
   mode: "development",
   entry: "./src/index.ts",
   output: {
-    path: path.join(__dirname, "dist"),
+    path: pathReslove("dist"),
     filename: "bundle.js",
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": pathReslove("src"),
     },
     extensions: [".ts", ".js", ".cjs", ".json"],
   },
