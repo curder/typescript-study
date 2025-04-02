@@ -1,5 +1,9 @@
 import axios from "axios";
-import type { AxiosInstance, AxiosRequestConfig } from "axios";
+import type {
+  AxiosInstance,
+  AxiosRequestConfig,
+  InternalAxiosRequestConfig,
+} from "axios";
 import type { RequestConfig } from "./type";
 
 class Request {
@@ -46,8 +50,27 @@ class Request {
     );
   }
 
-  request(config: AxiosRequestConfig) {
-    return this.instance.request(config);
+  request(config: RequestConfig) {
+    // 单独请求的拦截器
+    if (config.interceptors?.requestSuccess) {
+      config = config.interceptors.requestSuccess(
+        config as InternalAxiosRequestConfig
+      );
+    }
+    return new Promise((resolve, reject) => {
+      this.instance
+        .request(config)
+        .then((res) => {
+          // 单独响应的拦截器
+          if (config.interceptors?.responseSuccess) {
+            res = config.interceptors.responseSuccess(res);
+          }
+          resolve(res);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   }
 }
 
