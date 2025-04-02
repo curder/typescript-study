@@ -51,7 +51,7 @@ class Request {
     );
   }
 
-  request<T = any>(config: RequestConfig) {
+  request<T = any>(config: RequestConfig<T>) {
     // 单独请求的拦截器
     if (config.interceptors?.requestSuccess) {
       config = config.interceptors.requestSuccess(
@@ -64,7 +64,7 @@ class Request {
         .then((res) => {
           // 单独响应的拦截器
           if (config.interceptors?.responseSuccess) {
-            // res = config.interceptors.responseSuccess(res);
+            res = config.interceptors.responseSuccess(res);
           }
           resolve(res);
         })
