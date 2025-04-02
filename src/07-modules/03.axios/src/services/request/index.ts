@@ -75,6 +75,15 @@ class Request {
         //   config.headers.Authorization = `Bearer ${token}`;
         // }
 
+        // 开发环境下打印响应信息
+        if (process.env.NODE_ENV === "development") {
+          console.log(
+            `%c 响应: ${response.config.url}`,
+            "color: #4CAF50",
+            response.data
+          );
+        }
+        
         return response.data;
       },
       (error) => {
@@ -124,6 +133,15 @@ class Request {
           console.log("请求配置错误", error.message);
         }
 
+        // 开发环境下打印错误信息
+        if (process.env.NODE_ENV === "development") {
+          console.log(
+            `%c 请求错误: ${error.config?.url || '未知'}`,
+            "color: #F44336",
+            error
+          );
+        }
+        
         return Promise.reject(error);
       }
     );
