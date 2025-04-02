@@ -13,3 +13,11 @@ declare function getWebsiteInfo(): string;
 declare class Person {
   constructor(public name: string, public age: number);
 }
+
+// 给文件编写自定义类型声明
+declare module "*.png";
+
+// 给第三方库编写自定义类型声明
+declare namespace $ {
+  export function ajax(settings?: any): void;
+}

@@ -17,6 +17,10 @@ module.exports = {
         test: /\.ts$/,
         loader: "ts-loader",
       },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        type: "asset/resource",
+      },
     ],
   },
   devServer: {

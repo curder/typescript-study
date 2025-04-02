@@ -126,3 +126,58 @@ declare class Person {
   constructor(public name: string, public age: number);
 }
 ```
+
+## declare
+
+在 TypeScript 中，`declare` 关键字用于声明一个变量、函数、类、接口等类型。
+
+### 声明模块
+
+使用 `declare` 关键字声明模块的语法:
+
+```typescript
+declare module "模块名" {}
+```
+
+### 声明文件
+
+在某些情况下，也可以声明文件：
+
+- 比如在开发 vue 项目的过程中，默认是不识别 `.vue` 文件，就需要对其进行文件的声明；
+- 比如在开发中使用了 `jpg` 等图片文件，默认 `Typescript` 也是不支持的，也需要对其进行声明；
+
+```typescript
+declare module "*.vue" {
+  import type { DefineComponent } from "vue";
+  const component: DefineComponent<{}, {}, any>;
+  export default component;
+}
+
+declare module "*.jpg";
+declare module "*.jpeg";
+declare module "*.png";
+declare module "*.gif";
+```
+
+### 声明命名空间
+
+在 TypeScript 中，`declare` 关键字还可以用于声明命名空间。
+
+比如引入了外部库，比如 `jQuery`，就可以使用 `declare` 关键字声明命名空间：
+
+```typescript
+declare namespace $ {
+  function ajax(settings?: any): any;
+}
+```
+
+这样在代码中就可以使用 `$` 来调用 `jQuery` 的方法了：
+
+```typescript
+$.ajax({
+  url: "/api/data",
+  success: function (data) {
+    console.log(data);
+  },
+});
+```
