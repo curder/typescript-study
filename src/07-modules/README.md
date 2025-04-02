@@ -36,3 +36,26 @@ import type { IType, IPerson } from "./utils/type";
 ```
 
 这样可以让一个非 TypeScript 编译器比如 `Babel`、`swc` 或 `esbuild` 知道什么样的导入可以被安全移除。
+
+## 命名空间 namespace
+
+ES 模块标准之前出现，TypeScript 有它自己的模块格式，名为 `namespaces`。
+
+命名空间在 Typescript 早期时，称之为内部模块，目的是将一个模块内部再进行作用域的划分，防止一些命名冲突的问题。
+
+虽然命名空间没有被废弃，但是由于 ES 模块已经拥有了命名空间的大部分特性，因此更推荐使用 ES 模块，这样才能与
+JavaScript 的发展方向保持一致。
+
+```typescript
+export namespace price {
+  export function format(price: number) {
+    return `$${price.toFixed(2)}`;
+  }
+}
+
+export namespace date {
+  export function format(date: Date) {
+    return date.toLocaleDateString();
+  }
+}
+```
