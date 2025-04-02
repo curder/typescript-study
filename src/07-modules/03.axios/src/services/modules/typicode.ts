@@ -7,15 +7,19 @@ interface IPostData {
   body: string;
 }
 
-axiosRequest.get<IPostData[]>("/posts").then((res) => {
-  console.log(res);
-});
+// 使用优化后的 get 方法
+axiosRequest
+  .get<IPostData[]>("/posts")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(err => {
+    console.error("获取帖子列表失败:", err);
+  });
 
 // 添加局部拦截器
 axiosRequest
-  .request<IPostData>({
-    url: "/posts/1",
-    method: "GET",
+  .get<IPostData>("/posts/1", null, {
     interceptors: {
       requestSuccess(config) {
         console.log("Posts Comments 局部请求拦截器");
@@ -29,4 +33,7 @@ axiosRequest
   })
   .then((res) => {
     console.log(res);
+  })
+  .catch(err => {
+    console.error("获取帖子详情失败:", err);
   });

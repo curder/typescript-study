@@ -7,6 +7,12 @@ interface IRandomJoke {
   id: number;
 }
 
-axiosRequest2.get<IRandomJoke>("/random_joke").then((res) => {
-  console.log(res);
-});
+// 使用优化后的 get 方法
+axiosRequest2
+  .get<IRandomJoke>("/random_joke")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(err => {
+    console.error("获取笑话失败:", err);
+  });
