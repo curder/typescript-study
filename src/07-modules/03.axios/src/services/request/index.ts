@@ -83,7 +83,7 @@ class Request {
             response.data
           );
         }
-        
+
         return response.data;
       },
       (error) => {
@@ -136,12 +136,12 @@ class Request {
         // 开发环境下打印错误信息
         if (process.env.NODE_ENV === "development") {
           console.log(
-            `%c 请求错误: ${error.config?.url || '未知'}`,
+            `%c 请求错误: ${error.config?.url || "未知"}`,
             "color: #F44336",
             error
           );
         }
-        
+
         return Promise.reject(error);
       }
     );
