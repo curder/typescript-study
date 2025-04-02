@@ -1,23 +1,6 @@
 import axios from "axios";
-import type {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from "axios";
-
-interface Interceptors {
-  requestSuccess?: (
-    config: InternalAxiosRequestConfig
-  ) => InternalAxiosRequestConfig;
-  requestFailure?: (err: any) => any;
-  responseSuccess?: (res: AxiosResponse) => AxiosResponse;
-  responseFailure?: (err: any) => any;
-}
-
-interface RequestConfig extends AxiosRequestConfig {
-  interceptors?: Interceptors;
-}
+import type { AxiosInstance, AxiosRequestConfig } from "axios";
+import type { RequestConfig } from "./type";
 
 class Request {
   instance: AxiosInstance;
@@ -53,16 +36,14 @@ class Request {
     );
 
     // 添加局部拦截器
-    if (config.interceptors) {
-      this.instance.interceptors.request.use(
-        config.interceptors.requestSuccess,
-        config.interceptors.requestFailure
-      );
-      this.instance.interceptors.response.use(
-        config.interceptors.responseSuccess,
-        config.interceptors.responseFailure
-      );
-    }
+    this.instance.interceptors.request.use(
+      config.interceptors?.requestSuccess,
+      config.interceptors?.requestFailure
+    );
+    this.instance.interceptors.response.use(
+      config.interceptors?.responseSuccess,
+      config.interceptors?.responseFailure
+    );
   }
 
   request(config: AxiosRequestConfig) {
