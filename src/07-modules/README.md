@@ -87,3 +87,42 @@ Typescript 会自动查找类型声明文件，它们包括：
 Typescript 会自动查找内置类型声明文件，不需要手动引入。
 
 它的 GitHub 仓库地址：[microsoft/TypeScript](https://github.com/microsoft/TypeScript/tree/main/src/lib)
+
+### 外部定义类型声明
+
+外部类型声明通常是使用的一些库（比如第三方库）时，需要的一些类型声明。
+
+这些库通常有两种类型声明方式：
+
+- 库中自带类型声明（`.d.ts` 文件），比如 [`axios`](https://github.com/axios/axios/blob/main/index.d.ts)
+
+- 通过社区的一个公有库 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/) 存放类型声明文件
+
+  比如 `React` 库的类型声明文件：[DefinitelyTyped/DefinitelyTyped](库的类型声明文件：[DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react)
+
+### 自定义类型声明
+
+自定义类型声明是自己编写的类型声明文件，用于声明自己的类型。
+
+一般来说，自定义类型声明文件的命名格式为：`xxx.d.ts`，比如 `utils.d.ts`。
+
+自定义类型声明文件的编写方式与普通的 TypeScript 文件类似，只不过需要使用 `declare` 关键字来声明类型。
+
+```typescript
+// index.d.ts
+declare module "lodash" {
+  export function join(arr: string[], separator: string): string;
+}
+
+// 给变量编写自定义类型声明
+declare const websiteName: string;
+declare const websiteUrl: string;
+
+// 给函数编写自定义类型声明
+declare function getWebsiteInfo(): string;
+
+// 给类编写自定义类型声明
+declare class Person {
+  constructor(public name: string, public age: number);
+}
+```
