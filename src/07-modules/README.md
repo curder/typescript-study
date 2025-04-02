@@ -59,3 +59,31 @@ export namespace date {
   }
 }
 ```
+
+## 类型查找
+
+在使用 Typescript 编写项目时，除了可以自己定义类型外，还会用到一些其它类型：
+
+```typescript
+const imageElement = document.getElementById("image") as HTMLImageElement;
+```
+
+在 Typescript 中，可以使用 `.d.ts` 文件来声明类型，称之为类型声明(Type Declaration) 或类型定义(Type Definition)。
+
+Typescript 会自动查找类型声明文件，它们包括：
+
+- 内置类型声明
+- 外部定义类型声明
+- 自定义类型声明
+
+### 内置类型声明
+
+内置类型声明是 Typescript 内置了 JavaScript 运行时的一些标准化 API 的声明文件。
+
+比如 `Function`、`String`、`Math`、`Date` 等内置类型；
+
+也包括运行环境中的 DOM API，比如 `Window`、`Document` 等；
+
+Typescript 会自动查找内置类型声明文件，不需要手动引入。
+
+它的 GitHub 仓库地址：[microsoft/TypeScript](https://github.com/microsoft/TypeScript/tree/main/src/lib)

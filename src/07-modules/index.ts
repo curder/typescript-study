@@ -1,5 +1,4 @@
 import { sum } from "./utils/math";
-import { type IType, type IPerson } from "./utils/type";
 import { price, date } from "./utils/format";
 
 console.log(sum(1, 2)); // 3
