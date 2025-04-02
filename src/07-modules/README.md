@@ -98,7 +98,11 @@ Typescript 会自动查找内置类型声明文件，不需要手动引入。
 
 - 通过社区的一个公有库 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/) 存放类型声明文件
 
+  <!-- markdownlint-disable MD013 -->
+
   比如 `React` 库的类型声明文件：[DefinitelyTyped/DefinitelyTyped](库的类型声明文件：[DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react)
+
+  <!-- markdownlint-enable MD013 -->
 
 ### 自定义类型声明
 

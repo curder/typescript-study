@@ -17,6 +17,8 @@ showFound: true
 # Define glob expressions to ignore.
 ignores:
   - "node_modules/"
+  - "src/07-modules/02.webpack/node_modules/"
+  - "src/07-modules/03.axios/node_modules/"
 
 # Disable inline config comments.
 noInlineConfig: false
