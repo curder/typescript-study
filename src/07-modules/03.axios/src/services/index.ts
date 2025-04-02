@@ -1,5 +1,5 @@
 import { typicodeBaseUrl, jokeBaseUrl, timeout } from "./config";
-import Request from "./request";
+import Request from "@/services/request";
 
 const axiosRequest = new Request({
   baseURL: typicodeBaseUrl,

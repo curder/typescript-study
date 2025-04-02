@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { AxiosInstance, InternalAxiosRequestConfig } from "axios";
-import type { RequestConfig } from "./type";
+import type { RequestConfig } from "@/services/request/type";
 
 class Request {
   instance: AxiosInstance;

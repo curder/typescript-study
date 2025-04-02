@@ -1,4 +1,4 @@
-import { axiosRequest2 } from "..";
+import { axiosRequest2 } from "@/services";
 
 interface IRandomJoke {
   type: string;

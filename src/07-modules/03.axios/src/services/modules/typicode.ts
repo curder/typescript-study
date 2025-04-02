@@ -1,4 +1,4 @@
-import axiosRequest from "..";
+import axiosRequest from "@/services";
 
 interface IPostData {
   id: number;

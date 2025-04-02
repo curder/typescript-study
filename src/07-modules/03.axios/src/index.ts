@@ -1,2 +1,2 @@
-import "./services/modules/typicode";
-import "./services/modules/joke";
+import "@/services/modules/typicode";
+import "@/services/modules/joke";
