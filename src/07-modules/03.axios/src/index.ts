@@ -1,19 +1,33 @@
 import axiosRequest from "./services";
 import { axiosRequest2 } from "./services";
 
-// axiosRequest
-//   .request({
-//     url: "/posts",
-//     method: "GET",
-//   })
-//   .then((res) => {
-//     console.log(res.data);
-//   });
+interface IPostData {
+  id: number;
+  userId: number;
+  title: string;
+  body: string;
+}
+
+interface IRandomJoke {
+  type: string;
+  setup: string;
+  punchline: string;
+  id: number;
+}
+
+axiosRequest
+  .request<IPostData[]>({
+    url: "/posts",
+    method: "GET",
+  })
+  .then((res) => {
+    console.log(res);
+  });
 
 // 添加局部拦截器
 axiosRequest
-  .request({
-    url: "/posts/1/comments",
+  .request<IPostData>({
+    url: "/posts/1",
     method: "GET",
     interceptors: {
       requestSuccess(config) {
@@ -30,11 +44,11 @@ axiosRequest
     console.log(res);
   });
 
-// axiosRequest2
-//   .request({
-//     url: "/random_joke",
-//     method: "GET",
-//   })
-//   .then((res) => {
-//     console.log(res.data);
-//   });
+axiosRequest2
+  .request<IRandomJoke>({
+    url: "/random_joke",
+    method: "GET",
+  })
+  .then((res) => {
+    console.log(res);
+  });

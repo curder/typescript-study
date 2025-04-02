@@ -2,6 +2,7 @@ import axios from "axios";
 import type {
   AxiosInstance,
   AxiosRequestConfig,
+  AxiosResponse,
   InternalAxiosRequestConfig,
 } from "axios";
 import type { RequestConfig } from "./type";
@@ -30,7 +31,7 @@ class Request {
       (response) => {
         // 在这里可以添加一些响应后的处理逻辑，比如处理响应数据、错误处理等
         console.log("全局响应拦截器");
-        return response;
+        return response.data;
       },
       (error) => {
         // 在这里可以处理响应错误
@@ -50,20 +51,20 @@ class Request {
     );
   }
 
-  request(config: RequestConfig) {
+  request<T = any>(config: RequestConfig) {
     // 单独请求的拦截器
     if (config.interceptors?.requestSuccess) {
       config = config.interceptors.requestSuccess(
         config as InternalAxiosRequestConfig
       );
     }
-    return new Promise((resolve, reject) => {
+    return new Promise<T>((resolve, reject) => {
       this.instance
-        .request(config)
+        .request<any, T>(config)
         .then((res) => {
           // 单独响应的拦截器
           if (config.interceptors?.responseSuccess) {
-            res = config.interceptors.responseSuccess(res);
+            // res = config.interceptors.responseSuccess(res);
           }
           resolve(res);
         })
