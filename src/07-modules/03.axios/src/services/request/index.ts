@@ -97,6 +97,33 @@ class Request {
           // 例如: ElMessage.error(errorMsg) 或 Toast.fail(errorMsg)
         }
 
+        if (error.response) {
+          // 请求已发出，但服务器响应的状态码不在 2xx 范围内
+          switch (error.response.status) {
+            case 401:
+              console.log("未授权，请重新登录");
+              // 可以在这里处理登录过期逻辑
+              break;
+            case 403:
+              console.log("拒绝访问");
+              break;
+            case 404:
+              console.log("请求错误，未找到该资源");
+              break;
+            case 500:
+              console.log("服务器错误");
+              break;
+            default:
+              console.log(`连接错误 ${error.response.status}`);
+          }
+        } else if (error.request) {
+          // 请求已发出，但没有收到响应
+          console.log("网络错误，请稍后重试");
+        } else {
+          // 请求配置有误
+          console.log("请求配置错误", error.message);
+        }
+
         return Promise.reject(error);
       }
     );
