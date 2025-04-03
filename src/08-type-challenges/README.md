@@ -40,7 +40,7 @@ sum(1, 2); // number
 sum("1", "2"); // string
 ```
 
-## 在条件类类型中使用 infer 关键字
+## 在条件类型中使用 infer 关键字
 
 `infer` 关键字是 TypeScript 中非常强大的一个关键字，它可以在条件类型中使用。
 
@@ -61,3 +61,21 @@ type MyParameters<T> = T extends (...args: infer P) => any ? P : never;
 type calcFnReturnType = MyReturnType<calcFnType>; // number
 type fooReturnType = MyReturnType<calcFnType>; // string
 ```
+
+## 分发类型
+
+当在泛型中使用条件类型的时候，如果传入一个联合类型，就会变成 分发的（distributive）。
+
+```typescript
+type ToArray<Type> = Type extends any ? Type[] : never;
+
+type stringArray = toArray<string>; // string[]
+type numberArray = toArray<string | number>; // number[]
+type StrArrOrNumArr = ToArray<string | number>; // type StrArrOrNumArr = string[] | number[]
+```
+
+当传入 `string | number` 联合类型时，会遍历联合类型中的每一个成员；
+
+相当于 `ToArray<string> | ToArray<number>`；
+
+所以最后的结果是：`string[] | number[]`；
