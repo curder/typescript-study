@@ -266,3 +266,27 @@ type MyReturnType<T extends (...args: any) => any> = T extends (
   : any;
 type myTodoType2 = MyReturnType<Todo>; // string
 ```
+
+### InstanceType
+
+`InstanceType<Type>` 工具用于构造一个类型，它从 `Type` 类型中获取实例类型，并构造出一个新的类型。
+
+```typescript
+class Todo {
+  constructor(
+    public title: string,
+    public description?: string,
+    public completed?: boolean
+  ) {}
+}
+
+type myTodoType = InstanceType<typeof Todo>; // Todo
+
+// 实现一个通用的MyInstanceType<T>，它返回构造函数T的实例类型。
+type MyInstanceType<T extends new (...args: any) => any> = T extends new (
+  ...args: any
+) => infer R
+  ? R
+  : any;
+type myTodoType3 = MyInstanceType<typeof Todo>; // Todo
+```
