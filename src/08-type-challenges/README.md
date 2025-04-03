@@ -236,3 +236,16 @@ type myTodoType = Extract<Todo, "title" | "description">; // "title" | "descript
 type MyExtract<T, U> = T extends U ? T : never;
 type myTodoType2 = MyExtract<Todo, "title" | "description">; // "title" | "description"
 ```
+
+### NonNullable
+
+`NonNullable<Type>` 工具用于构造一个类型，它从 `Type` 类型中排除 `null` 和 `undefined`，并构造出一个新的类型。
+
+```typescript
+type Todo = string | number | null | undefined;
+type myTodoType = NonNullable<Todo>; // string | number
+
+// 实现一个通用的MyNonNullable<T>，它接受一个类型T并返回一个非空类型。
+type MyNonNullable<T> = T extends null | undefined ? never : T;
+type myTodoType2 = MyNonNullable<Todo>; // string | number
+```
