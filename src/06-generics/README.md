@@ -2,7 +2,7 @@
 
 泛型是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
 
-```typescript
+```ts
 function identify<T>(arg: T): T {
   return arg;
 }
@@ -20,7 +20,7 @@ console.log(identify({ name: "Jack", age: 18 }));
 
 通过实现一个 `useState` 函数，使用泛型的类型参数化来模拟 React 中的 `useState` 函数。
 
-```typescript
+```ts
 function useState<T>(initialState: T): [T, (state: T) => void] {
   let state = initialState;
   function setState(newState: T) {
@@ -36,7 +36,7 @@ const [banners, setBanners] = useState<any[]>([]);
 
 当然，泛型也支持多个类型的参数化：
 
-```typescript
+```ts
 function foo<T, E>(arg1: T, arg2: E): [T, E] {
   return [arg1, arg2];
 }
@@ -59,7 +59,7 @@ console.log(foo("Jack", 1));
 
 在定义接口时，为接口中的属性或方法定义泛型类型，在使用接口时，再指定具体的类型。
 
-```typescript
+```ts
 interface IUser<T> {
   name: T;
   age: number;
@@ -74,7 +74,7 @@ const user1: IUser<string> = {
 
 也可以给接口的属性指定默认类型：
 
-```typescript
+```ts
 interface IUser<T = string> {
   name: T;
   age: number;
@@ -92,7 +92,7 @@ const user1: IUser = {
 
 在定义类时，为类中的属性定义泛型类型，在使用类时，再指定具体的类型。
 
-```typescript
+```ts
 class Point<T = number> {
   constructor(public x: T, public y: T) {}
 }
@@ -111,7 +111,7 @@ console.log(p2);
 
 使用 `extends` 关键字来约束泛型的类型，使其只能是某个类型的子类型：
 
-```typescript
+```ts
 interface ILength {
   length: number;
 }
@@ -129,7 +129,7 @@ getLength({ length: 1 });
 
 使用 `keyof` 关键字来约束泛型的类型，使其只能是对象的属性：
 
-```typescript
+```ts
 function getProperty<O, K extends keyof O>(obj: O, key: K) {
   return obj[key];
 }
@@ -152,7 +152,7 @@ const height = getProperty(obj, "height");
 
 映射类型使用了 PropertyKey 联合类型的泛型实现，其中 PropertyKey 多是通过 `keyof` 操作符创建，然后遍历键名创建类型。
 
-```typescript
+```ts
 type MappedPerson<T> = {
   // 使用索引签名
   [P in keyof T]: T[P];
@@ -181,7 +181,7 @@ console.log(p.age); // 18
 
 可以通过前缀 `-` 或者 `+` 删除或者添加这些修饰符，如果没有写前缀，相当于使用了 `+` 前缀。
 
-```typescript
+```ts
 type MappedOptionalPerson<T> = {
   // 使用索引签名,添加可选和只读属性
   readonly [P in keyof T]?: T[P];

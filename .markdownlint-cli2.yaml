@@ -82,7 +82,7 @@ config:
   MD040:
     language_only: false
     allowed_languages:
-      - typescript
+      - ts
       - js
       - shell
       - text

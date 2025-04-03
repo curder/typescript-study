@@ -18,7 +18,7 @@
 
   类的方法可以使用 `function` 关键字声明，也可以使用 `=>` 箭头函数声明。
 
-```typescript
+```ts
 class Person {
   // 声明成员属性
   name: string;
@@ -46,7 +46,7 @@ console.log(p.name, p.age); // lolo 18
 - 子类可以添加新的属性和方法。
 - 子类可以使用 `super` 关键字调用父类的构造函数。
 
-```typescript
+```ts
 class Person {
   name: string;
   age: number;
@@ -83,7 +83,7 @@ s.eating(); // lolo is eating
 
 `public` 是默认的修饰符，`private` 和 `protected` 可以在类的属性和方法前面添加。
 
-```typescript
+```ts
 class Person {
   // 声明成员属性
   name: string;
@@ -111,7 +111,7 @@ console.log(p.name); // lolo
 
 只读属性 `readonly` 只能在声明时或者构造函数中赋值，不能在类的内部修改。
 
-```typescript
+```ts
 class Person {
   readonly name: string;
   constructor(name: string) {
@@ -129,7 +129,7 @@ p.name = "lolo2"; // 报错，因为 name 是只读的
 - `getter`：获取属性的值。
 - `setter`：设置属性的值。
 
-```typescript
+```ts
 class Person {
   private _name: string;
   constructor(name: string) {
@@ -155,7 +155,7 @@ console.log(p.name); // lolo2
 
 参数属性是一种简化的类的属性声明的方式，它可以在类的构造函数中直接声明属性。
 
-```typescript
+```ts
 class Person {
   // 类的参数属性，通过 public 关键字来声明，这样就可以在类的内部和外部都可以访问到该属性
   constructor(public name: string, public age: number, public height: number) {}
@@ -177,7 +177,7 @@ console.log(p.height); // 180
 
 抽象类的作用是为子类提供一个基类，子类必须实现抽象类中的抽象方法。
 
-```typescript
+```ts
 // 计算图形的面积
 abstract class Shape {
   // 抽象方法，子类必须实现
@@ -233,7 +233,7 @@ printArea(new Triangle(10, 20)); // 100
 
 类本生也可以作为类型使用，和接口类似。
 
-```typescript
+```ts
 class Person {
   constructor(public name: string, public age: number, public height: number) {}
   eating() {
@@ -254,7 +254,7 @@ p.eating(); // Jack is eating
 - 可选属性（Optional Property）：使用 `?` 表示该属性可选。
 - 只读属性（Readonly Property）：使用 `readonly` 表示该属性只读，顾名思义标记为 `readonly` 的属性不能被写入。
 
-```typescript
+```ts
 type Person = {
   name?: string; // 可选属性
   readonly age: number; // 只读属性
@@ -270,7 +270,7 @@ interface IPerson {
 
 索引签名是一种特殊的属性声明，它可以用来描述对象中属性的类型。
 
-```typescript
+```ts
 type ICollection = {
   // 索引签名
   [key: number]: string | number;
@@ -296,7 +296,7 @@ iteratorCollection(array); // Jack Tom
 
 接口可以继承其他接口，继承的接口中的属性和方法可以在当前接口中使用。
 
-```typescript
+```ts
 interface IPerson {
   name: string;
   age: number;
@@ -335,7 +335,7 @@ s.sayHello(); // Hello
 
 接口可以被类实现，类实现接口后，必须实现接口中所有的属性和方法。
 
-```typescript
+```ts
 interface ISwimmer {
   swim(): void;
 }

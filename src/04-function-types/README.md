@@ -6,7 +6,7 @@
 
 在 Typescript 中，可以编写函数类型的表达式（Function Type Expressions），来表示函数类型。
 
-```typescript
+```ts
 // 格式：(参数列表) => 返回值类型
 // 例如：(a: number, b: number) => number
 type addType = (a: number, b: number) => number;
@@ -22,7 +22,7 @@ const add: addType = (a: number, b: number): number => {
 
 函数类型表达式是一种函数类型的表示方法，它可以用来表示函数的类型。
 
-```typescript
+```ts
 type calcType = (a: number, b: number) => number;
 function calc(callback) {
   const result = callback(10, 20);
@@ -51,7 +51,7 @@ calc(function (a: number, b: number): number {
 
 如果需要描述一个带有属性的函数，可以在一个对象类型中写一个调用签名（call signatures）。
 
-```typescript
+```ts
 interface IBar {
   name: string;
   age: number;
@@ -80,7 +80,7 @@ JavaScript 函数也可以使用 `new` 操作符调用，当被调用的时候�
 
 构造签名（Constructor Signatures）用于描述类的构造函数类型。
 
-```typescript
+```ts
 class Person {}
 
 interface PersonConstructor {
@@ -111,7 +111,7 @@ factory(Person);
 
 可选参数的语法是在参数名后面加上一个问号（`?`）。
 
-```typescript
+```ts
 function foo(x: number, y?: number) {
   return x + (y || 0);
 }
@@ -135,7 +135,7 @@ console.log(foo(1)); // 1
 
 2. 有默认值的参数，在调用时，可以接收 `undefined`。
 
-```typescript
+```ts
 function sum(nums: number[], start = 0, end = nums.length): number {
   let res = 0;
   for (let i = start; i < end; i++) {
@@ -152,7 +152,7 @@ console.log(sum([1, 2, 3], undefined));
 
 剩余参数（Rest Parameters），是指在函数定义时，可以指定一个参数，该参数可以接收任意数量的参数。
 
-```typescript
+```ts
 function sum(...nums: number[]): number {
   let res = 0;
   for (let i = 0; i < nums.length; i++) {
@@ -170,7 +170,7 @@ console.log(sum(1, 2, 3)); // 6
 
 一般是编写两个或者以上的重载签名，再去编写一个通用的函数以及实现。
 
-```typescript
+```ts
 // 重载签名
 function add(x: number, y: number): number;
 function add(x: string, y: string): string;
@@ -189,7 +189,7 @@ console.log(add("1", "2"));
 
 联合类型和重载签名的选择问题：
 
-```typescript
+```ts
 // 定义一个函数，可以传入字符串或者数组，获取它们的长度。
 function getLength(x: string | any[]): number {
   return x.length;
@@ -208,7 +208,7 @@ console.log(getLength([1, 2, 3]));
 
 在 TypeScript 中，默认情况下，`this` 的类型是 `any`。
 
-```typescript
+```ts
 const obj = {
   name: "obj",
   getName() {
@@ -231,7 +231,7 @@ function getName() {
 在设置了 `noImplicitThis: true` 时， Typescript 会根据上下文推导 this，但是在不能正确推导时会报错，需要明确
 的指定 `this`。
 
-```typescript
+```ts
 // 1. 对象函数
 const obj = {
   name: "obj",
@@ -255,7 +255,7 @@ Typescript 提供了一些工具类型来辅助进行常见的类型转换，这
 
 用于提取一个函数类型的 this (opens new window)参数类型，如果这个函数类型没有 `this` 参数返回 `unknown`。
 
-```typescript
+```ts
 function foo(this: { name: string }) {
   console.log(this);
 }
@@ -271,7 +271,7 @@ type fooThisType = ThisParameterType<fooType>; // {name: string;}
 
 用于移除一个函数类型的 this (opens new window)参数。
 
-```typescript
+```ts
 function foo(this: { name: string }) {
   console.log(this);
 }
@@ -285,7 +285,7 @@ type fooThisType = OmitThisParameter<fooType>; // () => void
 
 这个类型不返回一个转换过的类型，它被用作标记一个上下文的 `this` 类型。
 
-```typescript
+```ts
 interface IState {
   name: string;
   age: number;

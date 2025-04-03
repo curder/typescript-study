@@ -7,14 +7,14 @@
 数字类型是开发中经常使用的类型，`TypeScript` 和 `JavaScript` 一样，不区分整型（int）和浮点型（double），统一为
 `number` 类型。
 
-```typescript
+```ts
 let num = 100;
 num = 2.22;
 ```
 
 ES6 中新增了二进制和八进制的表示方法，在 `TypeScript` 中也是支持二进制、八进制、十六进制的表示：
 
-```typescript
+```ts
 const binary = 0b1010; // 二进制
 const octal = 0o744; // 八进制
 const hex = 0x1f; // 十六进制
@@ -24,7 +24,7 @@ const hex = 0x1f; // 十六进制
 
 布尔类型表示真或假，在 `TypeScript` 中使用 `boolean` 表示：
 
-```typescript
+```ts
 const flag = true;
 ```
 
@@ -32,14 +32,14 @@ const flag = true;
 
 字符串类型使用 `string` 表示，可以使用单引号或者双引号表示：
 
-```typescript
+```ts
 let message = "hello typescript";
 message = "hello typescript";
 ```
 
 也支持 ES6 的模板字符串来拼接变量和字符串：
 
-```typescript
+```ts
 const name = "typescript";
 
 const message = `hello ${name}`;
@@ -53,7 +53,7 @@ const message = `hello ${name}`;
 
 2. `Array<string>` 表示数组中元素类型为 `string`，`Array<string>` 事实上是一种泛型的写法。
 
-```typescript
+```ts
 const arr1: Array<string> = ["1", "2", "3"];
 const arr2: string[] = ["1", "2", "3"];
 ```
@@ -64,7 +64,7 @@ const arr2: string[] = ["1", "2", "3"];
 
 `object` 对象类型可以用于描述一个对象：
 
-```typescript
+```ts
 const info: object = {
   name: "typescript",
   age: 100,
@@ -73,7 +73,7 @@ const info: object = {
 
 但是从 `info` 中不能获取数据，也不能设置数据。
 
-```typescript
+```ts
 const info: {
   name: string;
   age: number;
@@ -87,7 +87,7 @@ const info: {
 
 `symbol` 类型表示唯一值，在 `TypeScript` 中使用 `symbol` 表示：
 
-```typescript
+```ts
 const s1 = Symbol();
 const s2 = Symbol();
 
@@ -103,7 +103,7 @@ console.log(person[s2]); // Jane
 
 `null` 和 `undefined` 是 `TypeScript` 中的两个基本类型，`null` 表示空值，`undefined` 表示未定义。
 
-```typescript
+```ts
 let n: null = null;
 let u: undefined = undefined;
 ```
@@ -114,7 +114,7 @@ let u: undefined = undefined;
 
 函数是 `JavaScript` 非常重要的组成部分，在 `TypeScript` 中允许指定函数的参数类型。
 
-```typescript
+```ts
 function add(x: number, y: number) {
   return x + y;
 }
@@ -126,7 +126,7 @@ function add(x: number, y: number) {
 
 函数的返回类型也可以使用类型注解来指定。
 
-```typescript
+```ts
 function add(x: number, y: number): number {
   return x + y;
 }
@@ -141,7 +141,7 @@ function add(x: number, y: number): number {
 - 当一个函数出现在 `TypeScript` 可以确定该函数会被如何调用的地方时
 - 该函数的参数会自动指定类型
 
-```typescript
+```ts
 const names = ["Alice", "Bob", "Eve"];
 
 // 大多数匿名函数最好不要添加类型注解，因为 TS 可以自动推断出类型
@@ -158,7 +158,7 @@ names.forEach((name) => {
 
 使用对象类型来限定函数接受的参数是一个对象。
 
-```typescript
+```ts
 // 对象类型和函数类型结合使用
 function printCoordinate(pt: { x: number; y: number }) {
   console.log("The coordinate's x value is " + pt.x);
@@ -177,7 +177,7 @@ printCoordinate({ x: 3, y: 7 });
 
 对象类型也可以指定哪些属性是可选的，可以在属性的后面添加一个 **`?`** 来表示可选属性。
 
-```typescript
+```ts
 function printCoordinate(pt: { x: number; y: number; z?: number }) {
   console.log("The coordinate's x value is " + pt.x);
   console.log("The coordinate's y value is " + pt.y);
@@ -194,7 +194,7 @@ printCoordinate({ x: 3, y: 7, z: 10 });
 
 `any` 类型表示任意类型，`any` 类型的变量可以赋值给任意类型的变量。
 
-```typescript
+```ts
 let anyValue: any = 10;
 anyValue = "hello";
 anyValue = true;
@@ -204,7 +204,7 @@ anyValue = true;
 
 `unknown` 类型表示未知类型，`unknown` 类型的变量可以赋值给任意类型的变量。
 
-```typescript
+```ts
 let unknownValue: unknown = 10;
 unknownValue = "hello";
 unknownValue = true;
@@ -212,7 +212,7 @@ unknownValue = true;
 
 但是 `unknown` 类型的变量不能赋值给其他类型的变量。
 
-```typescript
+```ts
 let unknownValue: unknown = "Hello World";
 unknownValue = 123;
 
@@ -235,7 +235,7 @@ if (typeof unknownValue === "string") {
 
 `void` 类型表示没有任何类型，通常用于函数的返回值，表示函数没有返回值。
 
-```typescript
+```ts
 function sum(nums: number[]) {
   let res = 0;
   for (let i = 0; i < nums.length; i++) {
@@ -258,7 +258,7 @@ sum([1, 2, 3]);
 
 `never` 类型是任何类型的子类型，也可以赋值给任何类型；然而，没有类型是 `never` 的子类型或可以赋值给 `never` 类型（除了 `never` 本身之外）。
 
-```typescript
+```ts
 // 返回 never 的函数必须存在无法达到的终点
 function error(message: string): never {
   throw new Error(message);
@@ -285,7 +285,7 @@ function infiniteLoop(): never {
 
 - 元组中每个元素都有自己特性的类型，根据索引值获取到的值可以确定对应的类型；
 
-```typescript
+```ts
 const info = ["jack", 18]; // 数组
 const info2 = { name: "jack", age: 18 }; // 对象
 
@@ -299,7 +299,7 @@ const info3: [string, number] = ["jack", 18]; // 元组
 - 枚举其实就是将一组可能出现的值，一个个列举出来，定义在一个类型中，这个类型就是枚举类型；
 - 枚举允许开发者定义一组命名常量，常量可以是数字、字符串类型；
 
-```typescript
+```ts
 enum Direction {
   Up = 1,
   Down,
@@ -343,7 +343,7 @@ turnDirection(Direction.Right); // Turn Right
 
 枚举类型默认是有值的，比如上面的枚举，默认值是这样的：
 
-```typescript
+```ts
 enum Direction {
   Up = 1, // 1
   Down, // 2
@@ -354,7 +354,7 @@ enum Direction {
 
 当然也可以给枚举其它值，这个时候会从 100 进行递增
 
-```typescript
+```ts
 enum Direction {
   Up = 100, // 100
   Down, // 101
@@ -365,7 +365,7 @@ enum Direction {
 
 也可以给他们赋值其他的类型：
 
-```typescript
+```ts
 enum Direction {
   Up = 1, // 1
   Down, // 2
@@ -380,7 +380,7 @@ enum Direction {
 
 映射类型使用了 PropertyKey 联合类型的泛型实现，其中 PropertyKey 多是通过 `keyof` 操作符创建，然后遍历键名创建类型。
 
-```typescript
+```ts
 type MappedPerson<T> = {
   // 使用索引签名
   [P in keyof T]: T[P];

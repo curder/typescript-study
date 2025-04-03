@@ -17,7 +17,7 @@ JavaScript 规范声明任何没有 `export` 的 JavaScript 文件都应该被�
 
 TypeScript 4.5 也允许单独的导入类型，需要使用 `type` 前缀 ，表明被导入的是一个类型：
 
-```typescript
+```ts
 import { type IType, type IPerson } from "./utils/type";
 
 const id: IType = 1;
@@ -31,7 +31,7 @@ console.log(p); // { name: 'Jack', age: 18 }
 
 如果一个导入语句中都是类型导入，可以将 `type` 关键字放在导入语句的开头：
 
-```typescript
+```ts
 import type { IType, IPerson } from "./utils/type";
 ```
 
@@ -46,7 +46,7 @@ ES 模块标准之前出现，TypeScript 有它自己的模块格式，名为 `n
 虽然命名空间没有被废弃，但是由于 ES 模块已经拥有了命名空间的大部分特性，因此更推荐使用 ES 模块，这样才能与
 JavaScript 的发展方向保持一致。
 
-```typescript
+```ts
 export namespace price {
   export function format(price: number) {
     return `$${price.toFixed(2)}`;
@@ -64,7 +64,7 @@ export namespace date {
 
 在使用 Typescript 编写项目时，除了可以自己定义类型外，还会用到一些其它类型：
 
-```typescript
+```ts
 const imageElement = document.getElementById("image") as HTMLImageElement;
 ```
 
@@ -112,7 +112,7 @@ Typescript 会自动查找内置类型声明文件，不需要手动引入。
 
 自定义类型声明文件的编写方式与普通的 TypeScript 文件类似，只不过需要使用 `declare` 关键字来声明类型。
 
-```typescript
+```ts
 // index.d.ts
 declare module "lodash" {
   export function join(arr: string[], separator: string): string;
@@ -139,7 +139,7 @@ declare class Person {
 
 使用 `declare` 关键字声明模块的语法:
 
-```typescript
+```ts
 declare module "模块名" {}
 ```
 
@@ -150,7 +150,7 @@ declare module "模块名" {}
 - 比如在开发 vue 项目的过程中，默认是不识别 `.vue` 文件，就需要对其进行文件的声明；
 - 比如在开发中使用了 `jpg` 等图片文件，默认 `Typescript` 也是不支持的，也需要对其进行声明；
 
-```typescript
+```ts
 declare module "*.vue" {
   import type { DefineComponent } from "vue";
   const component: DefineComponent<{}, {}, any>;
@@ -169,7 +169,7 @@ declare module "*.gif";
 
 比如引入了外部库，比如 `jQuery`，就可以使用 `declare` 关键字声明命名空间：
 
-```typescript
+```ts
 declare namespace $ {
   function ajax(settings?: any): any;
 }
@@ -177,7 +177,7 @@ declare namespace $ {
 
 这样在代码中就可以使用 `$` 来调用 `jQuery` 的方法了：
 
-```typescript
+```ts
 $.ajax({
   url: "/api/data",
   success: function (data) {

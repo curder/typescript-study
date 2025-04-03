@@ -14,7 +14,7 @@ SomeType extends OtherType ? TrueType : FalseType;
 
 比如使用使用条件类型来判断一个类型是否继承自另一个类型从而返回 `boolean` 类型。
 
-```typescript
+```ts
 type IdType = string | number;
 // 1. conditional types
 // 判断 number 类型 是否继承自 IdType
@@ -23,7 +23,7 @@ type IsNumber = number extends IdType ? true : false; // type IsNumber = true
 
 再比如利用条件类型可以重构函数重载。
 
-```typescript
+```ts
 // 将函数重载重构为条件类型
 // function sum(a: number, b: number): number;
 // function sum(a: string, b: string): string;
@@ -46,7 +46,7 @@ sum("1", "2"); // string
 
 `infer` 关键字可以用来推断类型。
 
-```typescript
+```ts
 type calcFnType = (a: number, b: number) => number;
 
 function foo() {
@@ -66,7 +66,7 @@ type fooReturnType = MyReturnType<calcFnType>; // string
 
 当在泛型中使用条件类型的时候，如果传入一个联合类型，就会变成 分发的（distributive）。
 
-```typescript
+```ts
 type ToArray<Type> = Type extends any ? Type[] : never;
 
 type stringArray = toArray<string>; // string[]
@@ -86,7 +86,7 @@ type StrArrOrNumArr = ToArray<string | number>; // type StrArrOrNumArr = string[
 
 `Partial<Type>` 工具可以将一个类型的所有属性都变成可选的。
 
-```typescript
+```ts
 interface Todo {
   title: string;
   description: string;
@@ -106,7 +106,7 @@ type MyTodo2 = MyPartial<Todo>; // { title?: string; description?: string; compl
 
 `Required<Type>` 工具可以将一个类型的所有属性都变成必选的。
 
-```typescript
+```ts
 type Todo = {
   title: string;
   description?: string;
@@ -127,7 +127,7 @@ type todoType2 = MyRequired<Todo>; // { title: string; description: string; comp
 
 `Readonly<Type>` 工具可以将一个类型的所有属性都变成只读的。
 
-```typescript
+```ts
 type Todo = {
   title: string;
   description?: string;
@@ -150,7 +150,7 @@ export {};
 
 `Record<Keys, Type>` 工具用于构造一个对象类型，它所有的 key(键)都是 `Keys` 类型，它所有的 value(值)都是 `Type` 类型。
 
-```typescript
+```ts
 type keys = "processing" | "pending" | "done";
 type Todo = {
   title: string;
@@ -171,7 +171,7 @@ type todoTypes2 = MyRecord<keys, Todo>; // { processing: Todo; pending: Todo; do
 
 `Pick<Type, Keys>` 工具用于构造一个类型，它从 `Type` 类型中选取部分属性 `Keys`，并构造出一个新的类型。
 
-```typescript
+```ts
 type Todo = {
   title: string;
   description?: string;
@@ -193,7 +193,7 @@ type myTodoType2 = MyPick<Todo, "title" | "completed">; // { title: string; comp
 
 `Omit<Type, Keys>` 工具用于构造一个类型，它从 `Type` 类型中过滤部分属性 `Keys`，并构造出一个新的类型。
 
-```typescript
+```ts
 type Todo = {
   title: string;
   description?: string;
@@ -214,7 +214,7 @@ type myTodoType2 = MyOmit<Todo, "title" | "completed">; // { description?: strin
 
 `Exclude<UnionType, ExcludedMembers>` 工具用于构造一个类型，它从 `UnionType` 类型中排除部分属性 `ExcludedMembers`，并构造出一个新的类型。
 
-```typescript
+```ts
 type Todo = "title" | "description" | "completed";
 type myTodoType = Exclude<Todo, "title" | "description">; // "completed"
 
@@ -228,7 +228,7 @@ type myTodoType2 = MyExclude<Todo, "title" | "description">; // "completed"
 
 `Extract<Type, Union>` 工具用于构造一个类型，它从 `Type` 类型中提取部分属性 `Union`，并构造出一个新的类型。
 
-```typescript
+```ts
 type Todo = "title" | "description" | "completed";
 type myTodoType = Extract<Todo, "title" | "description">; // "title" | "description"
 
@@ -241,7 +241,7 @@ type myTodoType2 = MyExtract<Todo, "title" | "description">; // "title" | "descr
 
 `NonNullable<Type>` 工具用于构造一个类型，它从 `Type` 类型中排除 `null` 和 `undefined`，并构造出一个新的类型。
 
-```typescript
+```ts
 type Todo = string | number | null | undefined;
 type myTodoType = NonNullable<Todo>; // string | number
 
@@ -254,7 +254,7 @@ type myTodoType2 = MyNonNullable<Todo>; // string | number
 
 `ReturnType<Type>` 工具用于构造一个类型，它从 `Type` 类型中获取返回值类型，并构造出一个新的类型。
 
-```typescript
+```ts
 type Todo = () => string;
 type myTodoType = ReturnType<Todo>; // string
 
@@ -271,7 +271,7 @@ type myTodoType2 = MyReturnType<Todo>; // string
 
 `InstanceType<Type>` 工具用于构造一个类型，它从 `Type` 类型中获取实例类型，并构造出一个新的类型。
 
-```typescript
+```ts
 class Todo {
   constructor(
     public title: string,
