@@ -79,3 +79,25 @@ type StrArrOrNumArr = ToArray<string | number>; // type StrArrOrNumArr = string[
 相当于 `ToArray<string> | ToArray<number>`；
 
 所以最后的结果是：`string[] | number[]`；
+
+## 内置工具
+
+### Partial
+
+`Partial<Type>` 工具可以将一个类型的所有属性都变成可选的。
+
+```typescript
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+type MyTodo = Partial<Todo>;
+
+// 实现一个通用MyPartial<T>，它将T的每个属性设置为可选的。
+type MyPartial<T> = {
+  [K in keyof T]?: T[K]; // 映射类型
+};
+
+type MyTodo2 = MyPartial<Todo>; // { title?: string; description?: string; completed?: boolean; }
+```
