@@ -1,2 +1,4 @@
 .idea/
 .vscode/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
