@@ -238,7 +238,10 @@ class Request {
           if (mergedConfig.cancelDuplicate && requestKey) {
             this.cancelTokenSources.delete(requestKey);
           }
-          reject(err);
+          // Removed reject call
+          // reject(err);
+
+          console.log(err);
         });
     });
   }
