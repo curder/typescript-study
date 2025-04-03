@@ -40,7 +40,7 @@ sum(1, 2); // number
 sum("1", "2"); // string
 ```
 
-## 在条件类型中使用 infer 关键字
+### 在条件类型中使用 infer 关键字
 
 `infer` 关键字是 TypeScript 中非常强大的一个关键字，它可以在条件类型中使用。
 
@@ -62,7 +62,7 @@ type calcFnReturnType = MyReturnType<calcFnType>; // number
 type fooReturnType = MyReturnType<calcFnType>; // string
 ```
 
-## 分发类型
+### 分发类型
 
 当在泛型中使用条件类型的时候，如果传入一个联合类型，就会变成 分发的（distributive）。
 
