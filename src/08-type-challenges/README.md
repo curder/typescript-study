@@ -209,3 +209,17 @@ type MyOmit<T, K extends keyof T> = {
 
 type myTodoType2 = MyOmit<Todo, "title" | "completed">; // { description?: string | undefined; }
 ```
+
+### Exclude
+
+`Exclude<UnionType, ExcludedMembers>` 工具用于构造一个类型，它从 `UnionType` 类型中排除部分属性 `ExcludedMembers`，并构造出一个新的类型。
+
+```typescript
+type Todo = "title" | "description" | "completed";
+type myTodoType = Exclude<Todo, "title" | "description">; // "completed"
+
+// 实现一个通用的MyExclude<T, U>，它从T中排除可以赋值给U的类型。
+type MyExclude<T, U> = T extends U ? never : T;
+
+type myTodoType2 = MyExclude<Todo, "title" | "description">; // "completed"
+```
