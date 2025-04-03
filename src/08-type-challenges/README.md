@@ -166,3 +166,25 @@ type MyRecord<K extends keyof any, T> = {
 };
 type todoTypes2 = MyRecord<keys, Todo>; // { processing: Todo; pending: Todo; done: Todo; }
 ```
+
+### Pick
+
+`Pick<Type, Keys>` 工具用于构造一个类型，它从 `Type` 类型中选取部分属性 `Keys`，并构造出一个新的类型。
+
+```typescript
+type Todo = {
+  title: string;
+  description?: string;
+  completed?: boolean;
+};
+
+type myTodoType = Pick<Todo, "title" | "completed">; // { title: string; completed?: boolean; }
+
+// 实现一个通用的MyPick<T, K>，它接受两个类型参数T和K。
+// K指定应从T中选取的属性集。
+// 当没有传入K时，它就和普通的Pick<T, K>一样。
+type MyPick<T, K extends keyof T> = {
+  [P in K]: T[P];
+};
+type myTodoType2 = MyPick<Todo, "title" | "completed">; // { title: string; completed?: boolean; }
+```
