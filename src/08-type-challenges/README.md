@@ -39,3 +39,25 @@ function sum(a: any, b: any): any {
 sum(1, 2); // number
 sum("1", "2"); // string
 ```
+
+## 在条件类类型中使用 infer 关键字
+
+`infer` 关键字是 TypeScript 中非常强大的一个关键字，它可以在条件类型中使用。
+
+`infer` 关键字可以用来推断类型。
+
+```typescript
+type calcFnType = (a: number, b: number) => number;
+
+function foo() {
+  return "Hello";
+}
+
+// 推断函数的返回值类型
+type MyReturnType<T> = T extends (...args: any) => infer R ? R : never;
+// 推断函数的参数类型
+type MyParameters<T> = T extends (...args: infer P) => any ? P : never;
+
+type calcFnReturnType = MyReturnType<calcFnType>; // number
+type fooReturnType = MyReturnType<calcFnType>; // string
+```
