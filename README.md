@@ -7,3 +7,4 @@
 - [Typescript 面向对象](src/05-object-oriented/README.md)
 - [Typescript 泛型](src/06-generics/README.md)
 - [Typescript 模块化](src/07-modules/README.md)
+- [Typescript 类型体操](src/08-type-challenges/README.md)
