@@ -13,3 +13,5 @@ type MyPartial<T> = {
 };
 
 type MyTodo2 = MyPartial<Todo>; // { title?: string; description?: string; completed?: boolean; }
+
+export {};
