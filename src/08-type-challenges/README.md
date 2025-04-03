@@ -188,3 +188,24 @@ type MyPick<T, K extends keyof T> = {
 };
 type myTodoType2 = MyPick<Todo, "title" | "completed">; // { title: string; completed?: boolean; }
 ```
+
+### Omit
+
+`Omit<Type, Keys>` 工具用于构造一个类型，它从 `Type` 类型中过滤部分属性 `Keys`，并构造出一个新的类型。
+
+```typescript
+type Todo = {
+  title: string;
+  description?: string;
+  completed?: boolean;
+};
+
+type myTodoType = Omit<Todo, "title" | "completed">; // { description?: string | undefined; }
+
+// 实现一个通用的MyOmit<T, K>，它接受两个类型参数T和K。
+type MyOmit<T, K extends keyof T> = {
+  [P in keyof T as P extends K ? never : P]: T[P];
+};
+
+type myTodoType2 = MyOmit<Todo, "title" | "completed">; // { description?: string | undefined; }
+```
