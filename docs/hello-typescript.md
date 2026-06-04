@@ -2,7 +2,7 @@
 
 可以把 `TypeScript` 理解成更加强大的 `JavaScript`，不仅让 `JavaScript` 更加安全，而且给它带来了诸多好用的好用特性。
 
-## Typescirpt 特点
+## Typescript 特点
 
 - 始于 `JavaScript`，归于 `JavaScript`
 

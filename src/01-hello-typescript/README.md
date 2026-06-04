@@ -2,7 +2,7 @@
 
 可以把 `TypeScript` 理解成更加强大的 `JavaScript`，不仅让 `JavaScript` 更加安全，而且给它带来了诸多好用的好用特性。
 
-## Typescirpt 特点
+## Typescript 特点
 
 - 始于 `JavaScript`，归于 `JavaScript`
 
@@ -45,7 +45,7 @@ yarn global add typescript
 tsc -v
 ```
 
-## `Typescirpt` 运行环境
+## `Typescript` 运行环境
 
 使用命令 `tsc` 可以将 `TypeScript` 编译成 `JavaScript`，但是需要一个 `JavaScript` 运行环境，比如 `Node.js` 或者浏览器环境。
 
