@@ -1,4 +1,6 @@
-# Typescirpt
+# TypeScript
+
+[![Deploy VitePress site to Pages](https://github.com/curder/typescript-study/actions/workflows/deploy.yml/badge.svg)](https://github.com/curder/typescript-study/actions/workflows/deploy.yml)
 
 - [Typescript 基础](src/01-hello-typescript/README.md)
 - [Typescript 数据类型](src/02-data-types/README.md)
