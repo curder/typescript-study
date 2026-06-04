@@ -1,6 +1,6 @@
-# Typescript 类型体操
+# TypeScript 类型体操 {id="typescript-type"}
 
-## 条件类型 Conditional Types
+## 条件类型 Conditional Types {#type-conditional-types}
 
 日常开发中需要基于输入的值来决定输出的值，有时也需要基于输入的值的类型来决定输出的值的类型。
 
@@ -40,7 +40,7 @@ sum(1, 2); // number
 sum("1", "2"); // string
 ```
 
-### 在条件类型中使用 infer 关键字
+### 在条件类型中使用 infer 关键字 {#type-infer}
 
 `infer` 关键字是 TypeScript 中非常强大的一个关键字，它可以在条件类型中使用。
 
@@ -62,7 +62,7 @@ type calcFnReturnType = MyReturnType<calcFnType>; // number
 type fooReturnType = MyReturnType<calcFnType>; // string
 ```
 
-### 分发类型
+### 分发类型 {#distributivetype}
 
 当在泛型中使用条件类型的时候，如果传入一个联合类型，就会变成 分发的（distributive）。
 
@@ -80,9 +80,9 @@ type StrArrOrNumArr = ToArray<string | number>; // type StrArrOrNumArr = string[
 
 所以最后的结果是：`string[] | number[]`；
 
-## 内置工具
+## 内置工具 {#built-in}
 
-### Partial
+### Partial {#partial}
 
 `Partial<Type>` 工具可以将一个类型的所有属性都变成可选的。
 
@@ -102,7 +102,7 @@ type MyPartial<T> = {
 type MyTodo2 = MyPartial<Todo>; // { title?: string; description?: string; completed?: boolean; }
 ```
 
-### Required
+### Required {#required}
 
 `Required<Type>` 工具可以将一个类型的所有属性都变成必选的。
 
@@ -123,7 +123,7 @@ type MyRequired<T> = {
 type todoType2 = MyRequired<Todo>; // { title: string; description: string; completed: boolean; }
 ```
 
-### Readonly
+### Readonly {#readonly}
 
 `Readonly<Type>` 工具可以将一个类型的所有属性都变成只读的。
 
@@ -146,7 +146,7 @@ type todoType2 = MyReadonly<Todo>; // { readonly title: string; readonly descrip
 export {};
 ```
 
-### Record
+### Record {#record}
 
 `Record<Keys, Type>` 工具用于构造一个对象类型，它所有的 key(键)都是 `Keys` 类型，它所有的 value(值)都是 `Type` 类型。
 
@@ -165,9 +165,9 @@ type MyRecord<K extends keyof any, T> = {
   [P in K]: T;
 };
 type todoTypes2 = MyRecord<keys, Todo>; // { processing: Todo; pending: Todo; done: Todo; }
-```
+```ª
 
-### Pick
+### Pick {#pick}
 
 `Pick<Type, Keys>` 工具用于构造一个类型，它从 `Type` 类型中选取部分属性 `Keys`，并构造出一个新的类型。
 
@@ -189,7 +189,7 @@ type MyPick<T, K extends keyof T> = {
 type myTodoType2 = MyPick<Todo, "title" | "completed">; // { title: string; completed?: boolean; }
 ```
 
-### Omit
+### Omit {#omit}
 
 `Omit<Type, Keys>` 工具用于构造一个类型，它从 `Type` 类型中过滤部分属性 `Keys`，并构造出一个新的类型。
 
@@ -210,7 +210,7 @@ type MyOmit<T, K extends keyof T> = {
 type myTodoType2 = MyOmit<Todo, "title" | "completed">; // { description?: string | undefined; }
 ```
 
-### Exclude
+### Exclude {#exclude}
 
 `Exclude<UnionType, ExcludedMembers>` 工具用于构造一个类型，它从 `UnionType` 类型中排除部分属性 `ExcludedMembers`，并构造出一个新的类型。
 
@@ -224,7 +224,7 @@ type MyExclude<T, U> = T extends U ? never : T;
 type myTodoType2 = MyExclude<Todo, "title" | "description">; // "completed"
 ```
 
-### Extract
+### Extract {#extract}
 
 `Extract<Type, Union>` 工具用于构造一个类型，它从 `Type` 类型中提取部分属性 `Union`，并构造出一个新的类型。
 
@@ -237,7 +237,7 @@ type MyExtract<T, U> = T extends U ? T : never;
 type myTodoType2 = MyExtract<Todo, "title" | "description">; // "title" | "description"
 ```
 
-### NonNullable
+### NonNullable {#nonnullable}
 
 `NonNullable<Type>` 工具用于构造一个类型，它从 `Type` 类型中排除 `null` 和 `undefined`，并构造出一个新的类型。
 
@@ -250,7 +250,7 @@ type MyNonNullable<T> = T extends null | undefined ? never : T;
 type myTodoType2 = MyNonNullable<Todo>; // string | number
 ```
 
-### ReturnType
+### ReturnType {#returntype}
 
 `ReturnType<Type>` 工具用于构造一个类型，它从 `Type` 类型中获取返回值类型，并构造出一个新的类型。
 
@@ -267,7 +267,7 @@ type MyReturnType<T extends (...args: any) => any> = T extends (
 type myTodoType2 = MyReturnType<Todo>; // string
 ```
 
-### InstanceType
+### InstanceType {#instancetype}
 
 `InstanceType<Type>` 工具用于构造一个类型，它从 `Type` 类型中获取实例类型，并构造出一个新的类型。
 

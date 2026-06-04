@@ -1,7 +1,7 @@
-// 声明标识符时，如果在其进行赋值时没有指定类型，Typescript 会自动推断类型
+// 声明标识符时，如果在其进行赋值时没有指定类型，TypeScript 会自动推断类型
 
 // let 进行推导时推导出来的是通用类型
-let message = "Hello Typescript";
+let message = "Hello TypeScript";
 
 // const 进行推导时推导出来的是字面量类型
 // 字面量类型是指在代码中直接使用的值，例如字符串、数字、布尔值等

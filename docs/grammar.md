@@ -1,10 +1,10 @@
-# Typescript 语法
+# Typescript 语法 {id="typescript"}
 
 TypeScript 的类型系统允许使用多种运算符，从现有类型中构建新类型。
 
-## type 和 Interface
+## type 和 Interface {#type-interface}
 
-### type 类型别名
+### type 类型别名 {#type-type}
 
 使用 `type` 关键字和 `|` 符号来定义类型别名，类型别名可以是基本类型、对象类型、函数类型等。
 
@@ -19,7 +19,7 @@ function printCoord(pt: pointType) {
 }
 ```
 
-### Interface 接口
+### Interface 接口 {#interface}
 
 使用 `interface` 关键字来定义接口，接口可以是基本类型、对象类型、函数类型等。
 
@@ -38,7 +38,7 @@ function printCoord(pt: pointType) {
 }
 ```
 
-### type 和 interface 的区别
+### type 和 interface 的区别 {#type-interface-difference}
 
 > [!NOTE]
 >
@@ -106,7 +106,7 @@ function printCoord(pt: pointType) {
   }
   ```
 
-## Union Type 联合类型
+## Union Type 联合类型 {#union-type-type}
 
 联合类型是由两个或者多个其他类型组成的类型，表示可以是这些类型中的任何一个值；
 
@@ -125,7 +125,7 @@ function printId(id: number | string) {
 }
 ```
 
-## Intersection Type 交叉类型
+## Intersection Type 交叉类型 {#intersection-type-type}
 
 交叉类型使用 `type` 关键字和 **`&`** 符号定义，是由两个或者多个其他类型组成的类型，表示必须是这些类型中的所有值。
 
@@ -150,9 +150,9 @@ const student: IPerson & IStudent = {
 
 交叉类型一般用于合并多个类型的属性。
 
-## 类型断言
+## 类型断言 {#typeassertions}
 
-### as 类型断言
+### as 类型断言 {#as-typeassertions}
 
 有时候 TypeScript 无法获取具体的类型信息，这个需要使用类型断言（Type Assertions）。
 
@@ -182,7 +182,7 @@ const age3 = age as unknown as string; //【合法】 类型断言：将 number 
 const age4 = age as any as string; //【合法】 类型断言：将 number 类型断言为 any 类型，再将 any 类型断言为 string 类型
 ```
 
-### 非空类型断言
+### 非空类型断言 {#non-nulltypeassertions}
 
 非空类型断言（Non-null Assertion）是一种类型断言，用于告诉 TypeScript 某个值不可能为 `null` 或 `undefined` 。
 
@@ -210,7 +210,7 @@ console.log(person);
 
 非空断言使用的是 `!.` ，表示可以确定某个标识符是有值的，跳过 Typescript 在编译阶段对它的检测。
 
-## 字面量类型
+## 字面量类型 {#literaltype}
 
 字面量类型是一种类型，它的值只能是一个特定的值。
 
@@ -273,7 +273,7 @@ const requestInfo3 = {
 request(requestInfo3.url, requestInfo3.method);
 ```
 
-## 类型缩小
+## 类型缩小 {#typenarrowing}
 
 类型缩小是指在某些情况下，TypeScript 会根据代码的执行情况，将变量的类型缩小到更具体的类型。
 
@@ -285,7 +285,7 @@ request(requestInfo3.url, requestInfo3.method);
 - `in`
 - `is`
 
-### typeof
+### typeof {#typeof}
 
 在 TypeScript 中，检查返回的值 typeof 是一种类型保护，因为 TypeScript 对如何 typeof 操作不同的值进行编码。
 
@@ -301,7 +301,7 @@ function printId(id: number | string) {
 }
 ```
 
-### `===`、`!==` 平等缩小
+### `===`、`!==` 平等缩小 {#equalitynarrowing}
 
 使用 `switch` 或者相等的一些运算符来表达相等性。
 
@@ -329,7 +329,7 @@ function getDistance(direction: Direction) {
 }
 ```
 
-### instanceof
+### instanceof {#instanceof}
 
 使用 `instanceof` 运算符来检查对象是否属于某个类。
 
@@ -345,7 +345,7 @@ function printDate(date: string | Date) {
 }
 ```
 
-### in
+### in {#in}
 
 使用 `in` 运算符来检查对象是否具有某个属性。
 

@@ -1,8 +1,8 @@
-# 你好 Typescript
+# 你好 TypeScript
 
 可以把 `TypeScript` 理解成更加强大的 `JavaScript`，不仅让 `JavaScript` 更加安全，而且给它带来了诸多好用的好用特性。
 
-## Typescript 特点
+## TypeScript 特点
 
 - 始于 `JavaScript`，归于 `JavaScript`
 
@@ -21,7 +21,7 @@
     - `TypeScript` 提供最新的和不断发展的 `JavaScript` 特性，包括那些来自 2015 年的 `ECMAScript` 和未来的提案中的特性，比如异步功能和 Decorators，以帮助建立健壮的组件
     - 这些特性为高可信应用程序开发时是可用的，但是会被编译成简洁的 `ECMAScript3`（或更新版本）的 `JavaScript`
 
-## 采用 `Typescript` 的项目
+## 采用 `TypeScript` 的项目
 
 - `VS Code` 目前最流行的编辑器使用 `TypeScript` 作为开发语言
 - `Angular` 源码在很早就使用 TypeScript 来进行了重写，并且开发 Angular 也需要掌握 TypeScript；
@@ -45,7 +45,7 @@ yarn global add typescript
 tsc -v
 ```
 
-## `Typescript` 运行环境
+## `TypeScript` 运行环境
 
 使用命令 `tsc` 可以将 `TypeScript` 编译成 `JavaScript`，但是需要一个 `JavaScript` 运行环境，比如 `Node.js` 或者浏览器环境。
 

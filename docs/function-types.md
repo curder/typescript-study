@@ -1,8 +1,8 @@
-# 函数类型
+# 函数类型 {id="function-type"}
 
 在 JavaScript 开发中，函数是重要的组成部分，并且函数可以**作为一等公民**（可以作为参数，也可以作为返回值进行传递）。
 
-## 函数类型表达式
+## 函数类型表达式 {#function-type-expressions}
 
 在 Typescript 中，可以编写函数类型的表达式（Function Type Expressions），来表示函数类型。
 
@@ -45,7 +45,7 @@ calc(function (a: number, b: number): number {
 }); // -10
 ```
 
-## 调用签名
+## 调用签名 {#call-signatures}
 
 在 JavaScript 中，函数除了可以被调用，自己也是可以有属性值。
 
@@ -74,7 +74,7 @@ bar(1);
 > - 如果只是描述函数类型本身（函数允许被调用），使用函数类型表达式(Function Type Expressions)
 > - 如果需要描述函数作为对象可以被调用，同时也有其他属性，使用调用签名(Call Signatures)
 
-## 构造签名
+## 构造签名 {#section-2}
 
 JavaScript 函数也可以使用 `new` 操作符调用，当被调用的时候，TypeScript 会认为这是一个构造函数(constructors)，因为会产生一个新对象。
 
@@ -101,11 +101,11 @@ factory(Person);
 
 构造签名（ Construct Signatures ），方法是在调用签名前面加一个 `new` 关键词。
 
-## 参数
+## 参数 {#parameters}
 
 函数的参数包括：必选参数、可选参数、默认参数和剩余参数。
 
-### 可选参数
+### 可选参数 {#optional-parameters}
 
 函数的可选参数（Optional Parameters），是指在函数定义时，可以指定某些参数为可选参数。
 
@@ -123,7 +123,7 @@ console.log(foo(1)); // 1
 > 可选参数的默认值为 `undefined`。
 > 可选参数必须放在所有参数的最后面。
 
-### 默认参数
+### 默认参数 {#default-parameters}
 
 默认参数（Default Parameters），是指在函数定义时，可以指定某些参数的默认值。
 
@@ -148,7 +148,7 @@ console.log(sum([1, 2, 3]));
 console.log(sum([1, 2, 3], undefined));
 ```
 
-### 剩余参数
+### 剩余参数 {#remaining-parameters}
 
 剩余参数（Rest Parameters），是指在函数定义时，可以指定一个参数，该参数可以接收任意数量的参数。
 
@@ -164,7 +164,7 @@ function sum(...nums: number[]): number {
 console.log(sum(1, 2, 3)); // 6
 ```
 
-## 函数的重载 `overload signatures`
+## 函数的重载 `overload signatures` {#overload-overload-signatures}
 
 在 TypeScript 中，可以编写不同的重载签名（overload signatures）来表示函数可以以不同的方式进行调用；
 
@@ -202,9 +202,9 @@ console.log(getLength([1, 2, 3]));
 >
 > 在可能的情况下，尽量选择使用联合类型来实现
 
-## this 类型
+## this 类型 {#this-type}
 
-### this 默认类型
+### this 默认类型 {#this-default-type}
 
 在 TypeScript 中，默认情况下，`this` 的类型是 `any`。
 
@@ -224,7 +224,7 @@ function getName() {
 }
 ```
 
-### this 明确类型
+### this 明确类型 {#this-specify-type}
 
 创建一个 `tsconfig.json` 文件，并且在其中告知 `this` 必须明确指定（不能是隐式的）。
 
@@ -247,11 +247,11 @@ function getName(this: { name: string }) {
 getName.call({ name: "Curder" });
 ```
 
-## this 内置工具
+## this 内置工具 {#this-built-in}
 
 Typescript 提供了一些工具类型来辅助进行常见的类型转换，这些类型全局可用。
 
-### ThisParameterType
+### ThisParameterType {#thisparametertype}
 
 用于提取一个函数类型的 this (opens new window)参数类型，如果这个函数类型没有 `this` 参数返回 `unknown`。
 
@@ -267,7 +267,7 @@ type fooType = typeof foo;
 type fooThisType = ThisParameterType<fooType>; // {name: string;}
 ```
 
-### OmitThisParameter
+### OmitThisParameter {#omitthisparameter}
 
 用于移除一个函数类型的 this (opens new window)参数。
 
@@ -281,7 +281,7 @@ type fooType = typeof foo;
 type fooThisType = OmitThisParameter<fooType>; // () => void
 ```
 
-### ThisType
+### ThisType {#thistype}
 
 这个类型不返回一个转换过的类型，它被用作标记一个上下文的 `this` 类型。
 

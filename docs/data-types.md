@@ -1,8 +1,8 @@
-# Typescript 数据类型
+# Typescript 数据类型 {id="typescript-data-type"}
 
 `TypeScript` 是 `JavaScript` 的一个超集。
 
-## number 类型
+## number 类型 {#number-type}
 
 数字类型是开发中经常使用的类型，`TypeScript` 和 `JavaScript` 一样，不区分整型（int）和浮点型（double），统一为
 `number` 类型。
@@ -20,7 +20,7 @@ const octal = 0o744; // 八进制
 const hex = 0x1f; // 十六进制
 ```
 
-## boolean 类型
+## boolean 类型 {#boolean-type}
 
 布尔类型表示真或假，在 `TypeScript` 中使用 `boolean` 表示：
 
@@ -28,7 +28,7 @@ const hex = 0x1f; // 十六进制
 const flag = true;
 ```
 
-## string 类型
+## string 类型 {#string-type}
 
 字符串类型使用 `string` 表示，可以使用单引号或者双引号表示：
 
@@ -45,7 +45,7 @@ const name = "typescript";
 const message = `hello ${name}`;
 ```
 
-## array 类型
+## array 类型 {#array-type}
 
 数组类型的定义也非常简单，有两种方式：
 
@@ -60,7 +60,7 @@ const arr2: string[] = ["1", "2", "3"];
 
 > 如果添加其他类型到数组中会报错。
 
-## object 类型
+## object 类型 {#object-type}
 
 `object` 对象类型可以用于描述一个对象：
 
@@ -83,7 +83,7 @@ const info: {
 };
 ```
 
-## symbol 类型
+## symbol 类型 {#symbol-type}
 
 `symbol` 类型表示唯一值，在 `TypeScript` 中使用 `symbol` 表示：
 
@@ -99,7 +99,7 @@ console.log(person[s1]); // John
 console.log(person[s2]); // Jane
 ```
 
-## `null` 和 `undefined`
+## `null` 和 `undefined` {#null-undefined}
 
 `null` 和 `undefined` 是 `TypeScript` 中的两个基本类型，`null` 表示空值，`undefined` 表示未定义。
 
@@ -108,9 +108,9 @@ let n: null = null;
 let u: undefined = undefined;
 ```
 
-## 函数类型
+## 函数类型 {#type}
 
-### 函数的参数类型
+### 函数的参数类型 {#parameterstype}
 
 函数是 `JavaScript` 非常重要的组成部分，在 `TypeScript` 中允许指定函数的参数类型。
 
@@ -122,7 +122,7 @@ function add(x: number, y: number) {
 
 声明函数时，可以在每个参数后添加类型注解，以声明函数接受的参数类型。
 
-### 函数的返回值类型
+### 函数的返回值类型 {#return-valuetype}
 
 函数的返回类型也可以使用类型注解来指定。
 
@@ -134,7 +134,7 @@ function add(x: number, y: number): number {
 
 和变量的类型注解一样，通常情况下不需要返回类型注解，因为 `TypeScript` 会根据 `return` 返回值推断函数的返回类型。
 
-### 匿名函数的参数类型
+### 匿名函数的参数类型 {#parameterstype-2}
 
 匿名函数与函数声明会有一些不同：
 
@@ -154,7 +154,7 @@ names.forEach((name) => {
 
 这个过程称之为上下文类型（`contextual typing`），因为函数执行的上下文可以帮助确定参数和返回值的类型。
 
-## 对象类型
+## 对象类型 {#objecttype}
 
 使用对象类型来限定函数接受的参数是一个对象。
 
@@ -173,7 +173,7 @@ printCoordinate({ x: 3, y: 7 });
 > 1. 属性之间可以使用 `,` 或者 `;` 来分割，最后一个分隔符是可选的；
 > 2. 每个属性的类型部分也是可选的，如果不指定，那么就是 `any` 类型；
 
-## 可选类型
+## 可选类型 {#type-2}
 
 对象类型也可以指定哪些属性是可选的，可以在属性的后面添加一个 **`?`** 来表示可选属性。
 
@@ -188,7 +188,7 @@ printCoordinate({ x: 3, y: 7 });
 printCoordinate({ x: 3, y: 7, z: 10 });
 ```
 
-## any 类型
+## any 类型 {#any-type}
 
 在某些情况下确实无法确定一个变量的类型，并且可能它会发生一些变化，这个时候可以使用 `any` 类型。
 
@@ -200,7 +200,7 @@ anyValue = "hello";
 anyValue = true;
 ```
 
-## `unknown` 类型
+## `unknown` 类型 {#unknown-type}
 
 `unknown` 类型表示未知类型，`unknown` 类型的变量可以赋值给任意类型的变量。
 
@@ -231,7 +231,7 @@ if (typeof unknownValue === "string") {
 > [!WARNING]
 > 和 `any` 类型有点类似，但是 `unknown` 类型的值上做任何事情都是不合法的；
 
-## void 类型
+## void 类型 {#void-type}
 
 `void` 类型表示没有任何类型，通常用于函数的返回值，表示函数没有返回值。
 
@@ -252,7 +252,7 @@ sum([1, 2, 3]);
 > [!TIP]
 > 当基于上下文的类型推导（`Contextual Typing`）推导出返回类型为 `void` 的时候，并不会强制函数一定不能返回内容。
 
-## never 类型
+## never 类型 {#never-type}
 
 `never` 表示永远不会发生值的类型。
 
@@ -275,7 +275,7 @@ function infiniteLoop(): never {
 }
 ```
 
-## tuple 类型
+## tuple 类型 {#tuple-type}
 
 `tuple` 类型表示一个已知元素数量和类型的数组，各元素的类型不必相同。
 
@@ -292,7 +292,7 @@ const info2 = { name: "jack", age: 18 }; // 对象
 const info3: [string, number] = ["jack", 18]; // 元组
 ```
 
-## 枚举类型
+## 枚举类型 {#enumtype}
 
 枚举类型是为数不多的 Typescript 特性有的特性之一：
 
@@ -339,7 +339,7 @@ turnDirection(Direction.Left); // Turn Left
 turnDirection(Direction.Right); // Turn Right
 ```
 
-### 枚举类型的值
+### 枚举类型的值 {#enumtype-values}
 
 枚举类型默认是有值的，比如上面的枚举，默认值是这样的：
 
@@ -374,7 +374,7 @@ enum Direction {
 }
 ```
 
-## 映射类型 Mapped Types
+## 映射类型 Mapped Types {#type-mapped-types}
 
 有时一个类型需要基于另外一个类型，但是又不想拷贝一份，此时可以使用映射类型。
 

@@ -1,4 +1,4 @@
-# Typescript 泛型
+# Typescript 泛型 {id="typescript-generics"}
 
 泛型是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
 
@@ -16,7 +16,7 @@ console.log(identify({ name: "Jack", age: 18 }));
 >
 > 泛型作用于类型，而不是值。
 
-## 类型参数化
+## 类型参数化 {#typeparameters}
 
 通过实现一个 `useState` 函数，使用泛型的类型参数化来模拟 React 中的 `useState` 函数。
 
@@ -55,7 +55,7 @@ console.log(foo("Jack", 1));
 - `U` 表示 Unknown
 - `O` 表示 Object
 
-## 泛型接口
+## 泛型接口 {#generics}
 
 在定义接口时，为接口中的属性或方法定义泛型类型，在使用接口时，再指定具体的类型。
 
@@ -88,7 +88,7 @@ const user1: IUser = {
 }
 ```
 
-## 泛型类
+## 泛型类 {#generics-2}
 
 在定义类时，为类中的属性定义泛型类型，在使用类时，再指定具体的类型。
 
@@ -103,11 +103,11 @@ console.log(p1);
 console.log(p2);
 ```
 
-## 泛型约束
+## 泛型约束 {#generics-3}
 
 有时候希望传入的类型有某些共性，但是这些共性可能不是在同一种类型中：
 
-### `extends`
+### `extends` {#extends}
 
 使用 `extends` 关键字来约束泛型的类型，使其只能是某个类型的子类型：
 
@@ -125,7 +125,7 @@ getLength([1, 2, 3]);
 getLength({ length: 1 });
 ```
 
-### `keyof`
+### `keyof` {#keyof}
 
 使用 `keyof` 关键字来约束泛型的类型，使其只能是对象的属性：
 
@@ -146,7 +146,7 @@ const height = getProperty(obj, "height");
 // const weight = getProperty(obj, "weight"); // 类型“"weight"”的参数不能赋给类型“"name" | "age" | "height"”的参数。
 ```
 
-## 映射类型 Mapped Types
+## 映射类型 Mapped Types {#type-mapped-types}
 
 有时一个类型需要基于另外一个类型，但是又不想拷贝一份，此时可以使用映射类型。
 
@@ -172,7 +172,7 @@ console.log(p.name); // Jack
 console.log(p.age); // 18
 ```
 
-### 映射符号
+### 映射符号 {#symbols}
 
 在使用映射类型时，有两个额外的修饰符可能会用到：
 

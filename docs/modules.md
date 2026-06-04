@@ -1,8 +1,8 @@
-# Typescript 模块化
+# Typescript 模块化 {id="typescript-modules"}
 
 Typescript 中最主要使用的模块化方案就是 ES Module，也就是所熟知的 `import`/`export` 语法。
 
-## 非模块化 Non-Modules
+## 非模块化 Non-Modules {#modules-non-modules}
 
 JavaScript 规范声明任何没有 `export` 的 JavaScript 文件都应该被认为是一个脚本，而非一个模块。
 
@@ -13,7 +13,7 @@ JavaScript 规范声明任何没有 `export` 的 JavaScript 文件都应该被�
 
 这会把文件改成一个没有导出任何内容的模块，这个语法可以生效，无论你的模块目标是什么。
 
-## 内置类型导入 Inline type imports
+## 内置类型导入 Inline type imports {#typeimports-inline-type-imports}
 
 TypeScript 4.5 也允许单独的导入类型，需要使用 `type` 前缀 ，表明被导入的是一个类型：
 
@@ -37,7 +37,7 @@ import type { IType, IPerson } from "./utils/type";
 
 这样可以让一个非 TypeScript 编译器比如 `Babel`、`swc` 或 `esbuild` 知道什么样的导入可以被安全移除。
 
-## 命名空间 namespace
+## 命名空间 namespace {#namespace-namespace}
 
 ES 模块标准之前出现，TypeScript 有它自己的模块格式，名为 `namespaces`。
 
@@ -60,7 +60,7 @@ export namespace date {
 }
 ```
 
-## 类型查找
+## 类型查找 {#typelookup}
 
 在使用 Typescript 编写项目时，除了可以自己定义类型外，还会用到一些其它类型：
 
@@ -76,7 +76,7 @@ Typescript 会自动查找类型声明文件，它们包括：
 - 外部定义类型声明
 - 自定义类型声明
 
-### 内置类型声明
+### 内置类型声明 {#typedeclaration}
 
 内置类型声明是 Typescript 内置了 JavaScript 运行时的一些标准化 API 的声明文件。
 
@@ -88,7 +88,7 @@ Typescript 会自动查找内置类型声明文件，不需要手动引入。
 
 它的 GitHub 仓库地址：[microsoft/TypeScript](https://github.com/microsoft/TypeScript/tree/main/src/lib)
 
-### 外部定义类型声明
+### 外部定义类型声明 {#typedeclaration-2}
 
 外部类型声明通常是使用的一些库（比如第三方库）时，需要的一些类型声明。
 
@@ -104,7 +104,7 @@ Typescript 会自动查找内置类型声明文件，不需要手动引入。
 
   <!-- markdownlint-enable MD013 -->
 
-### 自定义类型声明
+### 自定义类型声明 {#typedeclaration-3}
 
 自定义类型声明是自己编写的类型声明文件，用于声明自己的类型。
 
@@ -131,11 +131,11 @@ declare class Person {
 }
 ```
 
-## declare
+## declare {#declare}
 
 在 TypeScript 中，`declare` 关键字用于声明一个变量、函数、类、接口等类型。
 
-### 声明模块
+### 声明模块 {#declaration}
 
 使用 `declare` 关键字声明模块的语法:
 
@@ -143,7 +143,7 @@ declare class Person {
 declare module "模块名" {}
 ```
 
-### 声明文件
+### 声明文件 {#declaration-2}
 
 在某些情况下，也可以声明文件：
 
@@ -163,7 +163,7 @@ declare module "*.png";
 declare module "*.gif";
 ```
 
-### 声明命名空间
+### 声明命名空间 {#declarationnamespace}
 
 在 TypeScript 中，`declare` 关键字还可以用于声明命名空间。
 

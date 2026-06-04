@@ -1,6 +1,6 @@
-# Typescript 面向对象
+# Typescript 面向对象 {id="typescript-object"}
 
-## 类的定义
+## 类的定义 {#section}
 
 类的定义通常会使用 `class` 关键字，类中包含特定的属性和方法。
 
@@ -38,7 +38,7 @@ const p = new Person("lolo", 18);
 console.log(p.name, p.age); // lolo 18
 ```
 
-## 类的继承
+## 类的继承 {#extends}
 
 类的继承使用 `extends` 关键字，子类可以继承父类的属性和方法。
 
@@ -73,7 +73,7 @@ const s = new Student("lolo", 18);
 s.eating(); // lolo is eating
 ```
 
-## 类的修饰符
+## 类的修饰符 {#modifiers}
 
 类的修饰符可以控制类的属性和方法的访问权限。
 
@@ -107,7 +107,7 @@ console.log(p.name); // lolo
 // console.log(p.eating()); // 报错，因为 eating 是 private 的
 ```
 
-## 只读属性 `readonly`
+## 只读属性 `readonly` {#readonly-property-readonly}
 
 只读属性 `readonly` 只能在声明时或者构造函数中赋值，不能在类的内部修改。
 
@@ -122,7 +122,7 @@ const p = new Person("lolo");
 p.name = "lolo2"; // 报错，因为 name 是只读的
 ```
 
-## getter 和 setter
+## getter 和 setter {#getter-setter}
 
 `getter` 和 `setter` 可以控制属性的访问和修改。
 
@@ -151,7 +151,7 @@ p.name = "lolo2";
 console.log(p.name); // lolo2
 ```
 
-## 参数属性 Parameter Properties
+## 参数属性 Parameter Properties {#parameters-parameter-properties}
 
 参数属性是一种简化的类的属性声明的方式，它可以在类的构造函数中直接声明属性。
 
@@ -169,7 +169,7 @@ console.log(p.height); // 180
 
 在构造函数参数前添加一个可见性修饰符 `public`、`private`、`protected` 或者 `readonly` 来创建参数属性，最后这些类属性字段也会得到这些修饰符；
 
-## 抽象类 abstract
+## 抽象类 abstract {#abstract-class-abstract}
 
 抽象类是一种不能被实例化的类，它只能被继承。
 
@@ -229,7 +229,7 @@ printArea(new Triangle(10, 20)); // 100
 - 抽象类是不能被实例化（也就是不能通过 `new` 创建）
 - 抽象方法必须被子类实现，否则该类必须是一个抽象类
 
-## 类的类型
+## 类的类型 {#type}
 
 类本生也可以作为类型使用，和接口类似。
 
@@ -247,7 +247,7 @@ console.log(p.age); // 18
 p.eating(); // Jack is eating
 ```
 
-## 对象类型属性修饰符 Property Modifiers
+## 对象类型属性修饰符 Property Modifiers {#objecttype-modifiers-property-modifiers}
 
 对象类型中的属性可以说明它的类型、属性是否可选、属性是否只读等。
 
@@ -266,7 +266,7 @@ interface IPerson {
 }
 ```
 
-## 索引签名 Index Signatures
+## 索引签名 Index Signatures {#index-signatures-index-signatures}
 
 索引签名是一种特殊的属性声明，它可以用来描述对象中属性的类型。
 
@@ -292,7 +292,7 @@ iteratorCollection(array); // Jack Tom
 
 一个索引签名的属性类型必须是 `string` 或 `number`。
 
-## 接口继承 Interface Extends
+## 接口继承 Interface Extends {#interface-extends-interface-extends}
 
 接口可以继承其他接口，继承的接口中的属性和方法可以在当前接口中使用。
 
@@ -331,7 +331,7 @@ console.log(s.score); // 100
 s.sayHello(); // Hello
 ```
 
-## 接口的实现
+## 接口的实现 {#section-2}
 
 接口可以被类实现，类实现接口后，必须实现接口中所有的属性和方法。
 
