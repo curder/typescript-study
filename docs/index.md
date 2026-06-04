@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "学习 Typescript"
+  name: "TypeScript 学习"
   text: ""
   tagline: "TypeScript 通过类型系统增强 JavaScript 的可维护性和可扩展性，适用于大型项目开发，同时兼容 ECMAScript 标准。"
   actions:
